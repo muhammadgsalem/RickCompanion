@@ -16,6 +16,8 @@
 		953107C12C863C6200CCD8DD /* RickCompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953107C02C863C6200CCD8DD /* RickCompanionTests.swift */; };
 		953107CB2C863C6200CCD8DD /* RickCompanionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953107CA2C863C6200CCD8DD /* RickCompanionUITests.swift */; };
 		953107CD2C863C6200CCD8DD /* RickCompanionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953107CC2C863C6200CCD8DD /* RickCompanionUITestsLaunchTests.swift */; };
+		953108592C8680D500CCD8DD /* BusinessLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953108582C8680D500CCD8DD /* BusinessLayer.framework */; };
+		9531085A2C8680D500CCD8DD /* BusinessLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 953108582C8680D500CCD8DD /* BusinessLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9531085B2C8680D500CCD8DD /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9531085A2C8680D500CCD8DD /* BusinessLayer.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		953107A62C863C6100CCD8DD /* RickCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		953107A92C863C6100CCD8DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +65,8 @@
 		953107C62C863C6200CCD8DD /* RickCompanionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RickCompanionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		953107CA2C863C6200CCD8DD /* RickCompanionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickCompanionUITests.swift; sourceTree = "<group>"; };
 		953107CC2C863C6200CCD8DD /* RickCompanionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickCompanionUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9531080E2C867F1800CCD8DD /* libBusinessLayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libBusinessLayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		953108582C8680D500CCD8DD /* BusinessLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BusinessLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				953108592C8680D500CCD8DD /* BusinessLayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +102,7 @@
 				953107BF2C863C6200CCD8DD /* RickCompanionTests */,
 				953107C92C863C6200CCD8DD /* RickCompanionUITests */,
 				953107A72C863C6100CCD8DD /* Products */,
+				9531080D2C867F1800CCD8DD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +147,15 @@
 			path = RickCompanionUITests;
 			sourceTree = "<group>";
 		};
+		9531080D2C867F1800CCD8DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				953108582C8680D500CCD8DD /* BusinessLayer.framework */,
+				9531080E2C867F1800CCD8DD /* libBusinessLayer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,12 +166,15 @@
 				953107A22C863C6100CCD8DD /* Sources */,
 				953107A32C863C6100CCD8DD /* Frameworks */,
 				953107A42C863C6100CCD8DD /* Resources */,
+				9531085B2C8680D500CCD8DD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = RickCompanion;
+			packageProductDependencies = (
+			);
 			productName = RickCompanion;
 			productReference = 953107A62C863C6100CCD8DD /* RickCompanion.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +247,8 @@
 				Base,
 			);
 			mainGroup = 9531079D2C863C6100CCD8DD;
+			packageReferences = (
+			);
 			productRefGroup = 953107A72C863C6100CCD8DD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
