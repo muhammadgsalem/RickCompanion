@@ -2,9 +2,8 @@
 //  CharactersViewController.swift
 //  RickCompanion
 //
-//  Created by Jimmy on 02/09/2024.
+//  Created by Jimmy on 03/09/2024.
 //
-
 import UIKit
 import BusinessLayer
 
@@ -12,10 +11,12 @@ import BusinessLayer
 class CharactersViewController: UIViewController {
     weak var coordinator: MainCoordinator?
     private let viewModel: CharactersViewModelProtocol
-
+    private let viewControllerNibName = "CharactersViewController"
+    
     init(viewModel: CharactersViewModelProtocol) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        let bundle = Bundle(for: CharactersViewController.self)
+        super.init(nibName: viewControllerNibName, bundle: bundle)
     }
 
     required init?(coder: NSCoder) {

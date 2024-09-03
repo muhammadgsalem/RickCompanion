@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		953107AA2C863C6100CCD8DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953107A92C863C6100CCD8DD /* AppDelegate.swift */; };
-		953107AE2C863C6100CCD8DD /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953107AD2C863C6100CCD8DD /* CharactersViewController.swift */; };
-		953107B12C863C6100CCD8DD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 953107B02C863C6100CCD8DD /* Base */; };
 		953107B32C863C6200CCD8DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 953107B22C863C6200CCD8DD /* Assets.xcassets */; };
 		953107B62C863C6200CCD8DD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 953107B52C863C6200CCD8DD /* Base */; };
 		953107C12C863C6200CCD8DD /* RickCompanionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953107C02C863C6200CCD8DD /* RickCompanionTests.swift */; };
@@ -24,6 +22,8 @@
 		953108B52C86993300CCD8DD /* APIGate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953108B42C86993300CCD8DD /* APIGate.framework */; };
 		953108B62C86993300CCD8DD /* APIGate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 953108B42C86993300CCD8DD /* APIGate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		953108B82C869A3F00CCD8DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108B72C869A3F00CCD8DD /* SceneDelegate.swift */; };
+		953108BB2C86A96900CCD8DD /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108B92C86A96900CCD8DD /* CharactersViewController.swift */; };
+		953108BC2C86A96900CCD8DD /* CharactersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953108BA2C86A96900CCD8DD /* CharactersViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +61,6 @@
 /* Begin PBXFileReference section */
 		953107A62C863C6100CCD8DD /* RickCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		953107A92C863C6100CCD8DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		953107AD2C863C6100CCD8DD /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
-		953107B02C863C6100CCD8DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		953107B22C863C6200CCD8DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		953107B52C863C6200CCD8DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		953107B72C863C6200CCD8DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +77,8 @@
 		953108B22C86963C00CCD8DD /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		953108B42C86993300CCD8DD /* APIGate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		953108B72C869A3F00CCD8DD /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		953108B92C86A96900CCD8DD /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
+		953108BA2C86A96900CCD8DD /* CharactersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +180,6 @@
 		953108A52C86945100CCD8DD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				953107AF2C863C6100CCD8DD /* Main.storyboard */,
 				953107B22C863C6200CCD8DD /* Assets.xcassets */,
 				953107B42C863C6200CCD8DD /* LaunchScreen.storyboard */,
 			);
@@ -215,7 +214,8 @@
 		953108A92C86952800CCD8DD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				953107AD2C863C6100CCD8DD /* CharactersViewController.swift */,
+				953108B92C86A96900CCD8DD /* CharactersViewController.swift */,
+				953108BA2C86A96900CCD8DD /* CharactersViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -355,9 +355,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				953108BC2C86A96900CCD8DD /* CharactersViewController.xib in Resources */,
 				953107B32C863C6200CCD8DD /* Assets.xcassets in Resources */,
 				953107B62C863C6200CCD8DD /* Base in Resources */,
-				953107B12C863C6100CCD8DD /* Base in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +382,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				953107AE2C863C6100CCD8DD /* CharactersViewController.swift in Sources */,
+				953108BB2C86A96900CCD8DD /* CharactersViewController.swift in Sources */,
 				953108B82C869A3F00CCD8DD /* SceneDelegate.swift in Sources */,
 				953108B32C86963C00CCD8DD /* MainCoordinator.swift in Sources */,
 				953107AA2C863C6100CCD8DD /* AppDelegate.swift in Sources */,
@@ -425,14 +425,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		953107AF2C863C6100CCD8DD /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				953107B02C863C6100CCD8DD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		953107B42C863C6200CCD8DD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
