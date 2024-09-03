@@ -5,10 +5,11 @@
 //  Created by Jimmy on 02/09/2024.
 //
 
+import APIGate
+import BusinessLayer
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
     var mainCoordinator: MainCoordinator?
 
@@ -19,7 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = UINavigationController()
 
         // Initialize the main coordinator with the navigation controller
-        let dependencyContainer = DependencyContainer.makeDefault()
+        // Initialize the DependencyContainer with concrete dependencies
+        let dependencyContainer = DependencyContainer(
+            networking: URLSessionNetworking(),
+            characterRepository: CharacterRepository(networking: URLSessionNetworking()),
+            fetchCharactersUseCase: FetchCharactersUseCase(characterRepository: CharacterRepository(networking: URLSessionNetworking()))
+        )
         mainCoordinator = MainCoordinator(navigationController: navigationController, dependencyContainer: dependencyContainer)
 
         // Start the coordinator to set up the initial view controller
@@ -58,7 +64,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
-

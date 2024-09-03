@@ -7,7 +7,11 @@
 
 import UIKit
 
-protocol Coordinator {
+protocol Coordinator: AnyObject {
     var navigationController: UINavigationController { get set }
+    
     func start()
+    func popViewController()
+    func popToRootViewController()
+    func dismissViewController()
 }

@@ -9,21 +9,28 @@ import UIKit
 
 final class MainCoordinator: Coordinator {
     var navigationController: UINavigationController
-    private let dependencyContainer: DependencyContainer
+    private let dependencyContainer: DependencyContainerProtocol
 
-    init(navigationController: UINavigationController, dependencyContainer: DependencyContainer) {
+    init(navigationController: UINavigationController, dependencyContainer: DependencyContainerProtocol) {
         self.navigationController = navigationController
         self.dependencyContainer = dependencyContainer
     }
 
     func start() {
         let charactersViewController = dependencyContainer.makeCharactersViewController()
+        charactersViewController.coordinator = self
         navigationController.pushViewController(charactersViewController, animated: false)
     }
 
-//    func showCharacterDetail(for character: Character) {
-//        let detailViewModel = dependencyContainer.makeCharacterDetailViewModel(character: character)
-//        let detailViewController = CharacterDetailViewController(viewModel: detailViewModel)
-//        navigationController.pushViewController(detailViewController, animated: true)
-//    }
+    func popViewController() {
+        navigationController.popViewController(animated: true)
+    }
+
+    func popToRootViewController() {
+        navigationController.popToRootViewController(animated: true)
+    }
+
+    func dismissViewController() {
+        navigationController.dismiss(animated: true, completion: nil)
+    }
 }
