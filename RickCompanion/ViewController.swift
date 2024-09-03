@@ -6,12 +6,23 @@
 //
 
 import UIKit
+import BusinessLayer
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        let repository = CharacterRepository()
+        let fetchCharactersUseCase = FetchCharactersUseCase(characterRepository: repository)
+        fetchCharactersUseCase.execute(page: 1) { result in
+            switch result {
+            case .success(let success):
+                break
+            case .failure(let failure):
+                break
+            }
+        }
     }
 
 
