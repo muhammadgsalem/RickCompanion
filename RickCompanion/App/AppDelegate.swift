@@ -21,7 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController()
 
         // Initialize the main coordinator with the navigation controller
-        mainCoordinator = MainCoordinator(navigationController: navigationController)
+        let dependencyContainer = DependencyContainer.makeDefault()
+        mainCoordinator = MainCoordinator(navigationController: navigationController, dependencyContainer: dependencyContainer)
 
         // Start the coordinator
         mainCoordinator?.start()

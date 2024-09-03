@@ -9,24 +9,20 @@ import UIKit
 
 final class MainCoordinator: Coordinator {
     var navigationController: UINavigationController
+    private let dependencyContainer: DependencyContainer
 
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, dependencyContainer: DependencyContainer) {
         self.navigationController = navigationController
+        self.dependencyContainer = dependencyContainer
     }
 
     func start() {
-        showCharactersList()
-    }
-
-    private func showCharactersList() {
-        let viewModel = DependencyContainer.shared.makeCharacterViewModel()
-        let charactersViewController = CharactersViewController(viewModel: viewModel)
-        charactersViewController.coordinator = self
-        navigationController.pushViewController(charactersViewController, animated: true)
+        let charactersViewController = dependencyContainer.makeCharactersViewController()
+        navigationController.pushViewController(charactersViewController, animated: false)
     }
 
 //    func showCharacterDetail(for character: Character) {
-//        let detailViewModel = DependencyContainer.shared.makeCharacterDetailViewModel(character: character)
+//        let detailViewModel = dependencyContainer.makeCharacterDetailViewModel(character: character)
 //        let detailViewController = CharacterDetailViewController(viewModel: detailViewModel)
 //        navigationController.pushViewController(detailViewController, animated: true)
 //    }

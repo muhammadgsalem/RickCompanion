@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = UINavigationController()
 
         // Initialize the main coordinator with the navigation controller
-        mainCoordinator = MainCoordinator(navigationController: navigationController)
+        let dependencyContainer = DependencyContainer.makeDefault()
+        mainCoordinator = MainCoordinator(navigationController: navigationController, dependencyContainer: dependencyContainer)
 
         // Start the coordinator to set up the initial view controller
         mainCoordinator?.start()
