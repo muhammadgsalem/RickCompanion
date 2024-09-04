@@ -11,19 +11,14 @@
 		953108DC2C87691300CCD8DD /* DataRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953108D12C87691300CCD8DD /* DataRepository.framework */; };
 		953108E12C87691300CCD8DD /* DataRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108E02C87691300CCD8DD /* DataRepositoryTests.swift */; };
 		953108E22C87691300CCD8DD /* DataRepository.h in Headers */ = {isa = PBXBuildFile; fileRef = 953108D42C87691300CCD8DD /* DataRepository.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		953108EF2C87695200CCD8DD /* DefaultCharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108ED2C87695200CCD8DD /* DefaultCharacterRepository.swift */; };
-		953108FB2C8769A300CCD8DD /* DataRepositoryProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 953108FA2C8769A300CCD8DD /* DataRepositoryProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		953108FF2C8769B300CCD8DD /* CharacterRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108F12C87698300CCD8DD /* CharacterRepositoryProtocol.swift */; };
+		953108EF2C87695200CCD8DD /* CharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108ED2C87695200CCD8DD /* CharacterRepository.swift */; };
 		953109002C8769BE00CCD8DD /* CharacterRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108F12C87698300CCD8DD /* CharacterRepositoryProtocol.swift */; };
-		953109152C876A8400CCD8DD /* APIGateProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953109142C876A8400CCD8DD /* APIGateProtocol.framework */; };
-		953109162C876A8400CCD8DD /* APIGateProtocol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 953109142C876A8400CCD8DD /* APIGateProtocol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9531091A2C8786B300CCD8DD /* CharactersEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109192C8786B300CCD8DD /* CharactersEndpoint.swift */; };
 		953109202C8787A300CCD8DD /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531091F2C8787A300CCD8DD /* Character.swift */; };
-		953109212C8787A300CCD8DD /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531091F2C8787A300CCD8DD /* Character.swift */; };
-		953109482C87C89800CCD8DD /* DefaultCharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108ED2C87695200CCD8DD /* DefaultCharacterRepository.swift */; };
-		953109492C87C8AB00CCD8DD /* CharactersEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109192C8786B300CCD8DD /* CharactersEndpoint.swift */; };
-		9531094F2C87C9CF00CCD8DD /* APIGateProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9531094E2C87C9CF00CCD8DD /* APIGateProtocol.framework */; };
-		953109502C87C9CF00CCD8DD /* APIGateProtocol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9531094E2C87C9CF00CCD8DD /* APIGateProtocol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		953109632C8875C500CCD8DD /* APIGate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953109622C8875C500CCD8DD /* APIGate.framework */; };
+		953109642C8875C500CCD8DD /* APIGate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 953109622C8875C500CCD8DD /* APIGate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9531097B2C88854C00CCD8DD /* DataRepositoryDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531097A2C88854C00CCD8DD /* DataRepositoryDIContainer.swift */; };
+		9531097E2C88863400CCD8DD /* RepositoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531097D2C88863400CCD8DD /* RepositoryError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,24 +32,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		953109172C876A8400CCD8DD /* Embed Frameworks */ = {
+		953109652C8875C600CCD8DD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				953109162C876A8400CCD8DD /* APIGateProtocol.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		953109512C87C9CF00CCD8DD /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				953109502C87C9CF00CCD8DD /* APIGateProtocol.framework in Embed Frameworks */,
+				953109642C8875C500CCD8DD /* APIGate.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,15 +51,16 @@
 		953108D52C87691300CCD8DD /* DataRepository.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = DataRepository.docc; sourceTree = "<group>"; };
 		953108DB2C87691300CCD8DD /* DataRepositoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataRepositoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		953108E02C87691300CCD8DD /* DataRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepositoryTests.swift; sourceTree = "<group>"; };
-		953108ED2C87695200CCD8DD /* DefaultCharacterRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCharacterRepository.swift; sourceTree = "<group>"; };
+		953108ED2C87695200CCD8DD /* CharacterRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterRepository.swift; sourceTree = "<group>"; };
 		953108F12C87698300CCD8DD /* CharacterRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRepositoryProtocol.swift; sourceTree = "<group>"; };
-		953108F82C8769A300CCD8DD /* DataRepositoryProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataRepositoryProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		953108FA2C8769A300CCD8DD /* DataRepositoryProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataRepositoryProtocol.h; sourceTree = "<group>"; };
 		953109142C876A8400CCD8DD /* APIGateProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGateProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		953109192C8786B300CCD8DD /* CharactersEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersEndpoint.swift; sourceTree = "<group>"; };
 		9531091F2C8787A300CCD8DD /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		9531094A2C87C8EF00CCD8DD /* APIGateProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGateProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9531094E2C87C9CF00CCD8DD /* APIGateProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGateProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		953109622C8875C500CCD8DD /* APIGate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9531097A2C88854C00CCD8DD /* DataRepositoryDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepositoryDIContainer.swift; sourceTree = "<group>"; };
+		9531097D2C88863400CCD8DD /* RepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				953109152C876A8400CCD8DD /* APIGateProtocol.framework in Frameworks */,
+				953109632C8875C500CCD8DD /* APIGate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,14 +80,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		953108F52C8769A300CCD8DD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9531094F2C87C9CF00CCD8DD /* APIGateProtocol.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -110,7 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				953108D32C87691300CCD8DD /* DataRepository */,
-				953108F92C8769A300CCD8DD /* DataRepositoryProtocol */,
 				953108D22C87691300CCD8DD /* Products */,
 				953108DF2C87691300CCD8DD /* DataRepositoryTests */,
 				953109132C876A8400CCD8DD /* Frameworks */,
@@ -122,7 +98,6 @@
 			children = (
 				953108D12C87691300CCD8DD /* DataRepository.framework */,
 				953108DB2C87691300CCD8DD /* DataRepositoryTests.xctest */,
-				953108F82C8769A300CCD8DD /* DataRepositoryProtocol.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,8 +105,12 @@
 		953108D32C87691300CCD8DD /* DataRepository */ = {
 			isa = PBXGroup;
 			children = (
+				953109792C88854600CCD8DD /* DependencyInjectionContainer */,
+				953109532C87CB8900CCD8DD /* RepositoryProtocols */,
+				9531091E2C87879900CCD8DD /* Models */,
 				953109182C8786A000CCD8DD /* EndPoints */,
 				953108EB2C87694600CCD8DD /* Repositories */,
+				9531097C2C88862700CCD8DD /* Utilites */,
 				953108D42C87691300CCD8DD /* DataRepository.h */,
 				953108D52C87691300CCD8DD /* DataRepository.docc */,
 			);
@@ -149,24 +128,15 @@
 		953108EB2C87694600CCD8DD /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				953108ED2C87695200CCD8DD /* DefaultCharacterRepository.swift */,
+				953108ED2C87695200CCD8DD /* CharacterRepository.swift */,
 			);
 			path = Repositories;
-			sourceTree = "<group>";
-		};
-		953108F92C8769A300CCD8DD /* DataRepositoryProtocol */ = {
-			isa = PBXGroup;
-			children = (
-				953109532C87CB8900CCD8DD /* RepositoryProtocols */,
-				9531091E2C87879900CCD8DD /* Models */,
-				953108FA2C8769A300CCD8DD /* DataRepositoryProtocol.h */,
-			);
-			path = DataRepositoryProtocol;
 			sourceTree = "<group>";
 		};
 		953109132C876A8400CCD8DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				953109622C8875C500CCD8DD /* APIGate.framework */,
 				9531094E2C87C9CF00CCD8DD /* APIGateProtocol.framework */,
 				9531094A2C87C8EF00CCD8DD /* APIGateProtocol.framework */,
 				953109142C876A8400CCD8DD /* APIGateProtocol.framework */,
@@ -198,6 +168,22 @@
 			path = RepositoryProtocols;
 			sourceTree = "<group>";
 		};
+		953109792C88854600CCD8DD /* DependencyInjectionContainer */ = {
+			isa = PBXGroup;
+			children = (
+				9531097A2C88854C00CCD8DD /* DataRepositoryDIContainer.swift */,
+			);
+			path = DependencyInjectionContainer;
+			sourceTree = "<group>";
+		};
+		9531097C2C88862700CCD8DD /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
+				9531097D2C88863400CCD8DD /* RepositoryError.swift */,
+			);
+			path = Utilites;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -206,14 +192,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				953108E22C87691300CCD8DD /* DataRepository.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		953108F32C8769A300CCD8DD /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				953108FB2C8769A300CCD8DD /* DataRepositoryProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,7 +206,7 @@
 				953108CD2C87691300CCD8DD /* Sources */,
 				953108CE2C87691300CCD8DD /* Frameworks */,
 				953108CF2C87691300CCD8DD /* Resources */,
-				953109172C876A8400CCD8DD /* Embed Frameworks */,
+				953109652C8875C600CCD8DD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -257,25 +235,6 @@
 			productReference = 953108DB2C87691300CCD8DD /* DataRepositoryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		953108F72C8769A300CCD8DD /* DataRepositoryProtocol */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 953108FC2C8769A300CCD8DD /* Build configuration list for PBXNativeTarget "DataRepositoryProtocol" */;
-			buildPhases = (
-				953108F32C8769A300CCD8DD /* Headers */,
-				953108F42C8769A300CCD8DD /* Sources */,
-				953108F52C8769A300CCD8DD /* Frameworks */,
-				953108F62C8769A300CCD8DD /* Resources */,
-				953109512C87C9CF00CCD8DD /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = DataRepositoryProtocol;
-			productName = DataRepositoryProtocol;
-			productReference = 953108F82C8769A300CCD8DD /* DataRepositoryProtocol.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -290,9 +249,6 @@
 						CreatedOnToolsVersion = 15.4;
 					};
 					953108DA2C87691300CCD8DD = {
-						CreatedOnToolsVersion = 15.4;
-					};
-					953108F72C8769A300CCD8DD = {
 						CreatedOnToolsVersion = 15.4;
 					};
 				};
@@ -312,7 +268,6 @@
 			targets = (
 				953108D02C87691300CCD8DD /* DataRepository */,
 				953108DA2C87691300CCD8DD /* DataRepositoryTests */,
-				953108F72C8769A300CCD8DD /* DataRepositoryProtocol */,
 			);
 		};
 /* End PBXProject section */
@@ -332,13 +287,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		953108F62C8769A300CCD8DD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -349,7 +297,9 @@
 				9531091A2C8786B300CCD8DD /* CharactersEndpoint.swift in Sources */,
 				953108D62C87691300CCD8DD /* DataRepository.docc in Sources */,
 				953109202C8787A300CCD8DD /* Character.swift in Sources */,
-				953108EF2C87695200CCD8DD /* DefaultCharacterRepository.swift in Sources */,
+				953108EF2C87695200CCD8DD /* CharacterRepository.swift in Sources */,
+				9531097B2C88854C00CCD8DD /* DataRepositoryDIContainer.swift in Sources */,
+				9531097E2C88863400CCD8DD /* RepositoryError.swift in Sources */,
 				953109002C8769BE00CCD8DD /* CharacterRepositoryProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,17 +309,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				953108E12C87691300CCD8DD /* DataRepositoryTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		953108F42C8769A300CCD8DD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				953109492C87C8AB00CCD8DD /* CharactersEndpoint.swift in Sources */,
-				953108FF2C8769B300CCD8DD /* CharacterRepositoryProtocol.swift in Sources */,
-				953109482C87C89800CCD8DD /* DefaultCharacterRepository.swift in Sources */,
-				953109212C8787A300CCD8DD /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,70 +544,6 @@
 			};
 			name = Release;
 		};
-		953108FD2C8769A300CCD8DD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MGS.RickCompanion.DataRepositoryProtocol;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		953108FE2C8769A300CCD8DD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MGS.RickCompanion.DataRepositoryProtocol;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -695,15 +570,6 @@
 			buildConfigurations = (
 				953108E92C87691300CCD8DD /* Debug */,
 				953108EA2C87691300CCD8DD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		953108FC2C8769A300CCD8DD /* Build configuration list for PBXNativeTarget "DataRepositoryProtocol" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				953108FD2C8769A300CCD8DD /* Debug */,
-				953108FE2C8769A300CCD8DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
