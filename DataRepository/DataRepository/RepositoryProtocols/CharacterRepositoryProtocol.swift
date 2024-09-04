@@ -9,6 +9,6 @@ import Foundation
 import APIGate
 
 public protocol CharacterRepositoryProtocol {
-    func fetchCharacters(page: Int, completion: @escaping (Result<CharacterResponse, RepositoryError>) -> Void)
+    func fetchCharacters(page: Int, status: String, completion: @escaping (Result<CharacterResponse, RepositoryError>) -> Void)
 }
 

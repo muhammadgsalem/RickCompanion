@@ -5,58 +5,76 @@
 //  Created by Jimmy on 03/09/2024.
 //
 
-import SwiftUI
 import DataRepository
+import SwiftUI
 
 struct CharacterCellView: View {
-    let character: Character
-    @State private var image: UIImage?
+    let character: Character?
 
     var body: some View {
-        HStack {
-            Group {
-                if let image = image {
-                    Image(uiImage: image)
+        HStack(alignment: .top) {
+            AsyncImage(url: character?.image) { phase in
+                switch phase {
+                case .empty:
+                    ProgressView()
+                case .success(let image):
+                    image
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                } else {
-                    ProgressView()
+                case .failure:
+                    Image(systemName: "photo")
+                        .foregroundColor(.gray)
+                @unknown default:
+                    Color.gray
                 }
             }
-            .frame(width: 50, height: 50)
-            .clipShape(Circle())
-            .overlay(Circle().stroke(Color.white, lineWidth: 2))
-            .shadow(radius: 5)
-            .padding(.trailing, 10)
+            .frame(width: 80, height: 80)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+            .padding([.leading, .bottom, .top], 10)
 
             VStack(alignment: .leading) {
-                Text(character.name)
+                Text(character?.name ?? "")
                     .font(.headline)
-                Text(character.species)
+                Text(character?.species ?? "")
                     .font(.subheadline)
                     .foregroundColor(.secondary)
             }
+            .padding([.leading, .bottom, .top], 10)
+            
             Spacer()
         }
-        .padding()
-        .task {
-            await loadImage()
-        }
-    }
-
-    private func loadImage() async {
-        let url = character.image
-
-        do {
-            let cachedImage = try await CacheManager.shared.loadResource(withKey: url.absoluteString) {
-                try await url.loadImage()
+        .frame(height: 120)
+        .background(
+            Group {
+                switch character?.status {
+                case .alive:
+                    Color(hex: "E9F6FD")
+                case .dead:
+                    Color(hex: "FCE6EB")
+                default:
+                    Color.clear
+                }
             }
-            await MainActor.run {
-                self.image = cachedImage
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+        )
+        .overlay(
+            Group {
+                switch character?.status {
+                case .alive:
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color(hex: "E9F6FD"), lineWidth: 2)
+                case .dead:
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color(hex: "FCE6EB"), lineWidth: 2)
+                default:
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.gray, lineWidth: 1)
+                }
             }
-        } catch {
-            print("Failed to load image: \(error)")
-        }
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .padding([.top, .bottom], 4)
+        .padding([.leading, .trailing])
     }
 }
 

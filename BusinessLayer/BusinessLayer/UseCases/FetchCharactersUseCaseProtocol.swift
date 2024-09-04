@@ -9,6 +9,6 @@ import Foundation
 import DataRepository
 
 public protocol FetchCharactersUseCaseProtocol {
-    func execute(page: Int, completion: @escaping (Result<CharacterResponse, BusinessError>) -> Void)
+    func execute(page: Int, status: String, completion: @escaping (Result<CharacterResponse, BusinessError>) -> Void)
 }
 

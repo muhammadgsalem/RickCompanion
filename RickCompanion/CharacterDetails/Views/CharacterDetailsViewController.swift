@@ -45,6 +45,7 @@ class CharacterDetailsViewController: UIViewController {
     
     private func setupUI() {
         view.backgroundColor = .white
+        navigationController?.setNavigationBarHidden(false, animated: true)
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -120,11 +121,13 @@ class CharacterDetailsViewController: UIViewController {
         let url = character.image
         
         do {
-            let image = try await CacheManager.shared.loadResource(withKey: url.absoluteString) {
-                try await url.loadImage()
-            }
-            await MainActor.run {
-                self.imageView.image = image
+            let (data, _) = try await URLSession.shared.data(from: url)
+            if let image = UIImage(data: data) {
+                await MainActor.run {
+                    self.imageView.image = image
+                }
+            } else {
+                print("Failed to create image from data")
             }
         } catch {
             print("Failed to load image: \(error)")
