@@ -24,7 +24,7 @@ class CharacterTableViewCell: UITableViewCell {
     }
     
     private func setupHostingController() {
-        hostingController = UIHostingController(rootView: CharacterCellView(character: .mockCharacter))
+        hostingController = UIHostingController(rootView: CharacterCellView(character: nil))
         hostingController?.view.backgroundColor = .clear
         
         guard let hostingView = hostingController?.view else { return }
@@ -41,5 +41,10 @@ class CharacterTableViewCell: UITableViewCell {
     
     func configure(with character: Character) {
         hostingController?.rootView = CharacterCellView(character: character)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        hostingController?.rootView = CharacterCellView(character: nil)
     }
 }
