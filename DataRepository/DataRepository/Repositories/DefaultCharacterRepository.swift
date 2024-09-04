@@ -1,17 +1,17 @@
 //
-//  CharacterRepository.swift
+//  DefaultCharacterRepository.swift
 //  BusinessLayer
 //
 //  Created by Jimmy on 03/09/2024.
 //
 
 import Foundation
-import APIGate
+import APIGateProtocol
+// Default implementation
+public class DefaultCharacterRepository: CharacterRepositoryProtocol {
+    private let networking: NetworkProtocol
 
-public class CharacterRepository: CharacterRepositoryProtocol {
-    private let networking: Networking
-
-    public init(networking: Networking = URLSessionNetworking()) {
+    public init(networking: NetworkProtocol) {
         self.networking = networking
     }
 

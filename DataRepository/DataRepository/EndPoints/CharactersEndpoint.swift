@@ -4,6 +4,7 @@
 //
 //  Created by Jimmy on 03/09/2024.
 //
+import APIGateProtocol
 
 public struct CharactersEndpoint: Endpoint {
     public var path: String {

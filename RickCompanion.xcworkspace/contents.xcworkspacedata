@@ -5,6 +5,9 @@
       location = "group:APIGate/APIGate.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:DataRepository/DataRepository.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:BusinessLayer/BusinessLayer.xcodeproj">
    </FileRef>
    <FileRef
