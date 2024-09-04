@@ -15,8 +15,8 @@ final class CharacterRepository: CharacterRepositoryProtocol {
         self.networking = networking
     }
 
-    func fetchCharacters(page: Int, completion: @escaping (Result<CharacterResponse, RepositoryError>) -> Void) {
-        let endpoint = CharactersEndpoint(page: page)
+    func fetchCharacters(page: Int, status: String, completion: @escaping (Result<CharacterResponse, RepositoryError>) -> Void) {
+        let endpoint = CharactersEndpoint(page: page, status: status)
         networking.request(endpoint) { (result: Result<CharacterResponse, NetworkError>) in
             switch result {
             case .success(let response):
