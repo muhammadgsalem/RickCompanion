@@ -11,11 +11,15 @@
 		953108712C86811300CCD8DD /* APIGate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953108662C86811300CCD8DD /* APIGate.framework */; };
 		953108762C86811300CCD8DD /* APIGateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108752C86811300CCD8DD /* APIGateTests.swift */; };
 		953108772C86811300CCD8DD /* APIGate.h in Headers */ = {isa = PBXBuildFile; fileRef = 953108692C86811300CCD8DD /* APIGate.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		953108872C86818D00CCD8DD /* CharactersEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108802C86818D00CCD8DD /* CharactersEndpoint.swift */; };
-		953108882C86818D00CCD8DD /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108822C86818D00CCD8DD /* Endpoint.swift */; };
-		953108892C86818D00CCD8DD /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108832C86818D00CCD8DD /* Networking.swift */; };
 		9531088A2C86818D00CCD8DD /* URLSessionNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108852C86818D00CCD8DD /* URLSessionNetworking.swift */; };
 		953108A12C868B7400CCD8DD /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108A02C868B7400CCD8DD /* URLExtension.swift */; };
+		9531090C2C876A5D00CCD8DD /* APIGateProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 9531090B2C876A5D00CCD8DD /* APIGateProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		953109122C876A6A00CCD8DD /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109102C876A6800CCD8DD /* NetworkProtocol.swift */; };
+		9531091B2C8786C100CCD8DD /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108822C86818D00CCD8DD /* Endpoint.swift */; };
+		9531091C2C8786C500CCD8DD /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108822C86818D00CCD8DD /* Endpoint.swift */; };
+		9531091D2C8786C900CCD8DD /* NetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109102C876A6800CCD8DD /* NetworkProtocol.swift */; };
+		953109442C87C69E00CCD8DD /* URLSessionNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108852C86818D00CCD8DD /* URLSessionNetworking.swift */; };
+		953109472C87C87D00CCD8DD /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108A02C868B7400CCD8DD /* URLExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,11 +38,12 @@
 		9531086A2C86811300CCD8DD /* APIGate.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = APIGate.docc; sourceTree = "<group>"; };
 		953108702C86811300CCD8DD /* APIGateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APIGateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		953108752C86811300CCD8DD /* APIGateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIGateTests.swift; sourceTree = "<group>"; };
-		953108802C86818D00CCD8DD /* CharactersEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersEndpoint.swift; sourceTree = "<group>"; };
 		953108822C86818D00CCD8DD /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
-		953108832C86818D00CCD8DD /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		953108852C86818D00CCD8DD /* URLSessionNetworking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionNetworking.swift; sourceTree = "<group>"; };
 		953108A02C868B7400CCD8DD /* URLExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
+		953109092C876A5D00CCD8DD /* APIGateProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = APIGateProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9531090B2C876A5D00CCD8DD /* APIGateProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIGateProtocol.h; sourceTree = "<group>"; };
+		953109102C876A6800CCD8DD /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +62,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		953109062C876A5D00CCD8DD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -64,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				953108682C86811300CCD8DD /* APIGate */,
+				9531090A2C876A5D00CCD8DD /* APIGateProtocol */,
 				953108742C86811300CCD8DD /* APIGateTests */,
 				953108672C86811300CCD8DD /* Products */,
 			);
@@ -74,6 +87,7 @@
 			children = (
 				953108662C86811300CCD8DD /* APIGate.framework */,
 				953108702C86811300CCD8DD /* APIGateTests.xctest */,
+				953109092C876A5D00CCD8DD /* APIGateProtocol.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,9 +95,7 @@
 		953108682C86811300CCD8DD /* APIGate */ = {
 			isa = PBXGroup;
 			children = (
-				953108812C86818D00CCD8DD /* Endpoints */,
 				953108862C86818D00CCD8DD /* NetworkLayer */,
-				953108842C86818D00CCD8DD /* Protocols */,
 				953108902C86822900CCD8DD /* Utilites */,
 				953108692C86811300CCD8DD /* APIGate.h */,
 				9531086A2C86811300CCD8DD /* APIGate.docc */,
@@ -99,19 +111,11 @@
 			path = APIGateTests;
 			sourceTree = "<group>";
 		};
-		953108812C86818D00CCD8DD /* Endpoints */ = {
-			isa = PBXGroup;
-			children = (
-				953108802C86818D00CCD8DD /* CharactersEndpoint.swift */,
-			);
-			path = Endpoints;
-			sourceTree = "<group>";
-		};
 		953108842C86818D00CCD8DD /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				953109102C876A6800CCD8DD /* NetworkProtocol.swift */,
 				953108822C86818D00CCD8DD /* Endpoint.swift */,
-				953108832C86818D00CCD8DD /* Networking.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -132,6 +136,15 @@
 			path = Utilites;
 			sourceTree = "<group>";
 		};
+		9531090A2C876A5D00CCD8DD /* APIGateProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				953108842C86818D00CCD8DD /* Protocols */,
+				9531090B2C876A5D00CCD8DD /* APIGateProtocol.h */,
+			);
+			path = APIGateProtocol;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -140,6 +153,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				953108772C86811300CCD8DD /* APIGate.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		953109042C876A5D00CCD8DD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9531090C2C876A5D00CCD8DD /* APIGateProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +203,24 @@
 			productReference = 953108702C86811300CCD8DD /* APIGateTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		953109082C876A5D00CCD8DD /* APIGateProtocol */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9531090F2C876A5D00CCD8DD /* Build configuration list for PBXNativeTarget "APIGateProtocol" */;
+			buildPhases = (
+				953109042C876A5D00CCD8DD /* Headers */,
+				953109052C876A5D00CCD8DD /* Sources */,
+				953109062C876A5D00CCD8DD /* Frameworks */,
+				953109072C876A5D00CCD8DD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = APIGateProtocol;
+			productName = APIGateProtocol;
+			productReference = 953109092C876A5D00CCD8DD /* APIGateProtocol.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,6 +236,10 @@
 					};
 					9531086F2C86811300CCD8DD = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					953109082C876A5D00CCD8DD = {
+						CreatedOnToolsVersion = 15.4;
+						LastSwiftMigration = 1540;
 					};
 				};
 			};
@@ -215,6 +258,7 @@
 			targets = (
 				953108652C86811300CCD8DD /* APIGate */,
 				9531086F2C86811300CCD8DD /* APIGateTests */,
+				953109082C876A5D00CCD8DD /* APIGateProtocol */,
 			);
 		};
 /* End PBXProject section */
@@ -234,6 +278,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		953109072C876A5D00CCD8DD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -242,10 +293,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9531088A2C86818D00CCD8DD /* URLSessionNetworking.swift in Sources */,
-				953108872C86818D00CCD8DD /* CharactersEndpoint.swift in Sources */,
-				953108882C86818D00CCD8DD /* Endpoint.swift in Sources */,
+				953109122C876A6A00CCD8DD /* NetworkProtocol.swift in Sources */,
 				9531086B2C86811300CCD8DD /* APIGate.docc in Sources */,
-				953108892C86818D00CCD8DD /* Networking.swift in Sources */,
+				9531091C2C8786C500CCD8DD /* Endpoint.swift in Sources */,
 				953108A12C868B7400CCD8DD /* URLExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,6 +305,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				953108762C86811300CCD8DD /* APIGateTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		953109052C876A5D00CCD8DD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9531091B2C8786C100CCD8DD /* Endpoint.swift in Sources */,
+				953109472C87C87D00CCD8DD /* URLExtension.swift in Sources */,
+				9531091D2C8786C900CCD8DD /* NetworkProtocol.swift in Sources */,
+				953109442C87C69E00CCD8DD /* URLSessionNetworking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +553,75 @@
 			};
 			name = Release;
 		};
+		9531090D2C876A5D00CCD8DD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MGS.RickCompanion.APIGateProtocol;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9531090E2C876A5D00CCD8DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = com.MGS.RickCompanion.APIGateProtocol;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -518,6 +648,15 @@
 			buildConfigurations = (
 				9531087E2C86811300CCD8DD /* Debug */,
 				9531087F2C86811300CCD8DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9531090F2C876A5D00CCD8DD /* Build configuration list for PBXNativeTarget "APIGateProtocol" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9531090D2C876A5D00CCD8DD /* Debug */,
+				9531090E2C876A5D00CCD8DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
