@@ -5,8 +5,9 @@
 //  Created by Jimmy on 02/09/2024.
 //
 
-import APIGate
-import BusinessLayer
+import APIGateProtocol
+import BusinessLayerProtocol
+import DataRepositoryProtocol
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -21,11 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Initialize the main coordinator with the navigation controller
         // Initialize the DependencyContainer with concrete dependencies
-        let dependencyContainer = DependencyContainer(
-            networking: URLSessionNetworking(),
-            characterRepository: CharacterRepository(networking: URLSessionNetworking()),
-            fetchCharactersUseCase: FetchCharactersUseCase(characterRepository: CharacterRepository(networking: URLSessionNetworking()))
-        )
+        let dependencyContainer = DependencyContainerFactory.defaultContainer()
         mainCoordinator = MainCoordinator(navigationController: navigationController, dependencyContainer: dependencyContainer)
 
         // Start the coordinator to set up the initial view controller
