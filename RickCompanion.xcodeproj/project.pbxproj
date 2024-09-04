@@ -34,6 +34,7 @@
 		953109872C88A09D00CCD8DD /* CharacterDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109862C88A09D00CCD8DD /* CharacterDetailCoordinator.swift */; };
 		9531098A2C88C12600CCD8DD /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109892C88C12600CCD8DD /* FilterView.swift */; };
 		9531098E2C88D6D600CCD8DD /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531098D2C88D6D600CCD8DD /* ColorExtension.swift */; };
+		953109952C89229500CCD8DD /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109942C89229500CCD8DD /* FilterButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		953109862C88A09D00CCD8DD /* CharacterDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailCoordinator.swift; sourceTree = "<group>"; };
 		953109892C88C12600CCD8DD /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		9531098D2C88D6D600CCD8DD /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		953109942C89229500CCD8DD /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +250,7 @@
 			children = (
 				953108B92C86A96900CCD8DD /* CharactersViewController.swift */,
 				953109892C88C12600CCD8DD /* FilterView.swift */,
+				953109942C89229500CCD8DD /* FilterButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 		9531095F2C87D9E600CCD8DD /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
+				953109912C88E1ED00CCD8DD /* CommonViews */,
 				9531098D2C88D6D600CCD8DD /* ColorExtension.swift */,
 			);
 			path = Utilites;
@@ -344,6 +348,13 @@
 				953109572C87D37500CCD8DD /* CharacterDetailsViewController.xib */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		953109912C88E1ED00CCD8DD /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CommonViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,6 +508,7 @@
 				953108A42C86942400CCD8DD /* DependencyContainer.swift in Sources */,
 				9531098A2C88C12600CCD8DD /* FilterView.swift in Sources */,
 				953108AC2C86956900CCD8DD /* CharactersViewModel.swift in Sources */,
+				953109952C89229500CCD8DD /* FilterButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

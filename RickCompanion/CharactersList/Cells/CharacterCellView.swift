@@ -1,80 +1,69 @@
-//
-//  CharacterCellView.swift
-//  RickCompanion
-//
-//  Created by Jimmy on 03/09/2024.
-//
-
 import DataRepository
 import SwiftUI
 
 struct CharacterCellView: View {
     let character: Character?
 
+    private let roundedRectangleShape = RoundedRectangle(cornerRadius: 10)
+
     var body: some View {
-        HStack(alignment: .top) {
-            AsyncImage(url: character?.image) { phase in
-                switch phase {
-                case .empty:
-                    ProgressView()
-                case .success(let image):
+        if let character = character {
+            HStack(alignment: .top) {
+                AsyncImage(url: character.image) { image in
                     image
                         .resizable()
-                        .aspectRatio(contentMode: .fit)
-                case .failure:
-                    Image(systemName: "photo")
-                        .foregroundColor(.gray)
-                @unknown default:
-                    Color.gray
+                        .aspectRatio(contentMode: .fill)
+                } placeholder: {
+                    ProgressView()
                 }
-            }
-            .frame(width: 80, height: 80)
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .padding([.leading, .bottom, .top], 10)
+                .frame(width: 80, height: 80)
+                .clipShape(roundedRectangleShape)
+                .padding([.leading, .bottom, .top], 10)
 
-            VStack(alignment: .leading) {
-                Text(character?.name ?? "")
-                    .font(.headline)
-                Text(character?.species ?? "")
-                    .font(.subheadline)
-                    .foregroundColor(.secondary)
+                VStack(alignment: .leading) {
+                    Text(character.name)
+                        .font(.headline)
+                    Text(character.species)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+                .padding([.leading, .bottom, .top], 10)
+
+                Spacer()
             }
-            .padding([.leading, .bottom, .top], 10)
-            
-            Spacer()
+            .frame(height: 120)
+            .background(backgroundColor(for: character.status)
+                .clipShape(roundedRectangleShape))
+            .overlay(overlayStroke(for: character.status)
+                .clipShape(roundedRectangleShape))
+            .clipShape(roundedRectangleShape)
+            .padding([.top, .bottom], 4)
+            .padding([.leading, .trailing])
         }
-        .frame(height: 120)
-        .background(
-            Group {
-                switch character?.status {
-                case .alive:
-                    Color(hex: "E9F6FD")
-                case .dead:
-                    Color(hex: "FCE6EB")
-                default:
-                    Color.clear
-                }
-            }
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-        )
-        .overlay(
-            Group {
-                switch character?.status {
-                case .alive:
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color(hex: "E9F6FD"), lineWidth: 2)
-                case .dead:
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color(hex: "FCE6EB"), lineWidth: 2)
-                default:
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.gray, lineWidth: 1)
-                }
-            }
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 10))
-        .padding([.top, .bottom], 4)
-        .padding([.leading, .trailing])
+    }
+
+    // Background color based on character status
+    private func backgroundColor(for status: Character.Status) -> Color {
+        switch status {
+        case .alive:
+            return Color(hex: "E9F6FD")
+        case .dead:
+            return Color(hex: "FCE6EB")
+        default:
+            return Color.clear
+        }
+    }
+
+    // Overlay stroke based on character status
+    private func overlayStroke(for status: Character.Status) -> some View {
+        switch status {
+        case .alive:
+            return roundedRectangleShape.stroke(Color(hex: "E9F6FD"), lineWidth: 2)
+        case .dead:
+            return roundedRectangleShape.stroke(Color(hex: "FCE6EB"), lineWidth: 2)
+        default:
+            return roundedRectangleShape.stroke(Color.gray, lineWidth: 1)
+        }
     }
 }
 
