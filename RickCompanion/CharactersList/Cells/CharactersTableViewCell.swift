@@ -7,7 +7,7 @@
 
 import UIKit
 import SwiftUI
-import DataRepositoryProtocol
+import DataRepository
 
 class CharacterTableViewCell: UITableViewCell {
     static let reuseIdentifier = "CharacterTableViewCell"

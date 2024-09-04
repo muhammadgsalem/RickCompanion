@@ -5,15 +5,12 @@
 //  Created by Jimmy on 02/09/2024.
 //
 
-import APIGateProtocol
-import BusinessLayerProtocol
-import DataRepositoryProtocol
 import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    var mainCoordinator: MainCoordinator?
+    var appCoordinator: AppCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Initialize the main window
@@ -23,12 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController()
 
         // Initialize the main coordinator with the navigation controller
-        // Initialize the DependencyContainer with concrete dependencies
-        let dependencyContainer = DependencyContainerFactory.defaultContainer()
-        mainCoordinator = MainCoordinator(navigationController: navigationController, dependencyContainer: dependencyContainer)
-
+        appCoordinator = AppCoordinator(navigationController: navigationController)
         // Start the coordinator
-        mainCoordinator?.start()
+        appCoordinator?.start()
+        
 
         // Set the root view controller of the window to the navigation controller
         window?.rootViewController = navigationController
