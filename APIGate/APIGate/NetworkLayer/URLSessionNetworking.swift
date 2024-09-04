@@ -7,8 +7,8 @@
 
 
 import Foundation
-
-public class URLSessionNetworking: Networking {
+// Default implementation
+public class URLSessionNetworking: NetworkProtocol {
     private let session: URLSession
     
     public init(session: URLSession = .shared) {

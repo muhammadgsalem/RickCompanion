@@ -7,50 +7,54 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		953108432C86809F00CCD8DD /* BusinessLayer.docc in Sources */ = {isa = PBXBuildFile; fileRef = 953108422C86809F00CCD8DD /* BusinessLayer.docc */; };
-		953108492C86809F00CCD8DD /* BusinessLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9531083E2C86809F00CCD8DD /* BusinessLayer.framework */; };
-		9531084E2C86809F00CCD8DD /* BusinessLayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531084D2C86809F00CCD8DD /* BusinessLayerTests.swift */; };
-		9531084F2C86809F00CCD8DD /* BusinessLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 953108412C86809F00CCD8DD /* BusinessLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		953108952C8687CA00CCD8DD /* DefaultFetchCharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108942C8687CA00CCD8DD /* DefaultFetchCharactersUseCase.swift */; };
-		953109022C876A0900CCD8DD /* DataRepositoryProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953109012C876A0900CCD8DD /* DataRepositoryProtocol.framework */; };
-		953109032C876A0900CCD8DD /* DataRepositoryProtocol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 953109012C876A0900CCD8DD /* DataRepositoryProtocol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		9531092A2C87890A00CCD8DD /* BusinessLayerProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 953109292C87890A00CCD8DD /* BusinessLayerProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9531092F2C87891F00CCD8DD /* FetchCharactersUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531092E2C87891F00CCD8DD /* FetchCharactersUseCaseProtocol.swift */; };
-		953109302C87891F00CCD8DD /* FetchCharactersUseCaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531092E2C87891F00CCD8DD /* FetchCharactersUseCaseProtocol.swift */; };
-		9531093B2C878FF900CCD8DD /* DataRepositoryProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9531093A2C878FF900CCD8DD /* DataRepositoryProtocol.framework */; };
-		9531093C2C878FF900CCD8DD /* DataRepositoryProtocol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9531093A2C878FF900CCD8DD /* DataRepositoryProtocol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		953109522C87CABB00CCD8DD /* DefaultFetchCharactersUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108942C8687CA00CCD8DD /* DefaultFetchCharactersUseCase.swift */; };
+		953108D62C87691300CCD8DD /* DataRepository.docc in Sources */ = {isa = PBXBuildFile; fileRef = 953108D52C87691300CCD8DD /* DataRepository.docc */; };
+		953108DC2C87691300CCD8DD /* DataRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953108D12C87691300CCD8DD /* DataRepository.framework */; };
+		953108E12C87691300CCD8DD /* DataRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108E02C87691300CCD8DD /* DataRepositoryTests.swift */; };
+		953108E22C87691300CCD8DD /* DataRepository.h in Headers */ = {isa = PBXBuildFile; fileRef = 953108D42C87691300CCD8DD /* DataRepository.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		953108EF2C87695200CCD8DD /* DefaultCharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108ED2C87695200CCD8DD /* DefaultCharacterRepository.swift */; };
+		953108FB2C8769A300CCD8DD /* DataRepositoryProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 953108FA2C8769A300CCD8DD /* DataRepositoryProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		953108FF2C8769B300CCD8DD /* CharacterRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108F12C87698300CCD8DD /* CharacterRepositoryProtocol.swift */; };
+		953109002C8769BE00CCD8DD /* CharacterRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108F12C87698300CCD8DD /* CharacterRepositoryProtocol.swift */; };
+		953109152C876A8400CCD8DD /* APIGateProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953109142C876A8400CCD8DD /* APIGateProtocol.framework */; };
+		953109162C876A8400CCD8DD /* APIGateProtocol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 953109142C876A8400CCD8DD /* APIGateProtocol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9531091A2C8786B300CCD8DD /* CharactersEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109192C8786B300CCD8DD /* CharactersEndpoint.swift */; };
+		953109202C8787A300CCD8DD /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531091F2C8787A300CCD8DD /* Character.swift */; };
+		953109212C8787A300CCD8DD /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531091F2C8787A300CCD8DD /* Character.swift */; };
+		953109482C87C89800CCD8DD /* DefaultCharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108ED2C87695200CCD8DD /* DefaultCharacterRepository.swift */; };
+		953109492C87C8AB00CCD8DD /* CharactersEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109192C8786B300CCD8DD /* CharactersEndpoint.swift */; };
+		9531094F2C87C9CF00CCD8DD /* APIGateProtocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9531094E2C87C9CF00CCD8DD /* APIGateProtocol.framework */; };
+		953109502C87C9CF00CCD8DD /* APIGateProtocol.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9531094E2C87C9CF00CCD8DD /* APIGateProtocol.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9531084A2C86809F00CCD8DD /* PBXContainerItemProxy */ = {
+		953108DD2C87691300CCD8DD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 953108352C86809F00CCD8DD /* Project object */;
+			containerPortal = 953108C82C87691300CCD8DD /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 9531083D2C86809F00CCD8DD;
-			remoteInfo = BusinessLayer;
+			remoteGlobalIDString = 953108D02C87691300CCD8DD;
+			remoteInfo = DataRepository;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		9531088F2C8681A600CCD8DD /* Embed Frameworks */ = {
+		953109172C876A8400CCD8DD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				953109032C876A0900CCD8DD /* DataRepositoryProtocol.framework in Embed Frameworks */,
+				953109162C876A8400CCD8DD /* APIGateProtocol.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9531093D2C878FFA00CCD8DD /* Embed Frameworks */ = {
+		953109512C87C9CF00CCD8DD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9531093C2C878FF900CCD8DD /* DataRepositoryProtocol.framework in Embed Frameworks */,
+				953109502C87C9CF00CCD8DD /* APIGateProtocol.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -58,223 +62,242 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9531083E2C86809F00CCD8DD /* BusinessLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BusinessLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		953108412C86809F00CCD8DD /* BusinessLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusinessLayer.h; sourceTree = "<group>"; };
-		953108422C86809F00CCD8DD /* BusinessLayer.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = BusinessLayer.docc; sourceTree = "<group>"; };
-		953108482C86809F00CCD8DD /* BusinessLayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BusinessLayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9531084D2C86809F00CCD8DD /* BusinessLayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLayerTests.swift; sourceTree = "<group>"; };
-		9531088C2C8681A500CCD8DD /* APIGate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		953108942C8687CA00CCD8DD /* DefaultFetchCharactersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFetchCharactersUseCase.swift; sourceTree = "<group>"; };
-		953109012C876A0900CCD8DD /* DataRepositoryProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DataRepositoryProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		953109272C87890A00CCD8DD /* BusinessLayerProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BusinessLayerProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		953109292C87890A00CCD8DD /* BusinessLayerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BusinessLayerProtocol.h; sourceTree = "<group>"; };
-		9531092E2C87891F00CCD8DD /* FetchCharactersUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCharactersUseCaseProtocol.swift; sourceTree = "<group>"; };
-		9531093A2C878FF900CCD8DD /* DataRepositoryProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DataRepositoryProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		953108D12C87691300CCD8DD /* DataRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		953108D42C87691300CCD8DD /* DataRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataRepository.h; sourceTree = "<group>"; };
+		953108D52C87691300CCD8DD /* DataRepository.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = DataRepository.docc; sourceTree = "<group>"; };
+		953108DB2C87691300CCD8DD /* DataRepositoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataRepositoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		953108E02C87691300CCD8DD /* DataRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepositoryTests.swift; sourceTree = "<group>"; };
+		953108ED2C87695200CCD8DD /* DefaultCharacterRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCharacterRepository.swift; sourceTree = "<group>"; };
+		953108F12C87698300CCD8DD /* CharacterRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRepositoryProtocol.swift; sourceTree = "<group>"; };
+		953108F82C8769A300CCD8DD /* DataRepositoryProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataRepositoryProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		953108FA2C8769A300CCD8DD /* DataRepositoryProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataRepositoryProtocol.h; sourceTree = "<group>"; };
+		953109142C876A8400CCD8DD /* APIGateProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGateProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		953109192C8786B300CCD8DD /* CharactersEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersEndpoint.swift; sourceTree = "<group>"; };
+		9531091F2C8787A300CCD8DD /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		9531094A2C87C8EF00CCD8DD /* APIGateProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGateProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9531094E2C87C9CF00CCD8DD /* APIGateProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGateProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9531083B2C86809F00CCD8DD /* Frameworks */ = {
+		953108CE2C87691300CCD8DD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				953109022C876A0900CCD8DD /* DataRepositoryProtocol.framework in Frameworks */,
+				953109152C876A8400CCD8DD /* APIGateProtocol.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		953108452C86809F00CCD8DD /* Frameworks */ = {
+		953108D82C87691300CCD8DD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				953108492C86809F00CCD8DD /* BusinessLayer.framework in Frameworks */,
+				953108DC2C87691300CCD8DD /* DataRepository.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		953109242C87890A00CCD8DD /* Frameworks */ = {
+		953108F52C8769A300CCD8DD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9531093B2C878FF900CCD8DD /* DataRepositoryProtocol.framework in Frameworks */,
+				9531094F2C87C9CF00CCD8DD /* APIGateProtocol.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		953108342C86809F00CCD8DD = {
+		953108C72C87691300CCD8DD = {
 			isa = PBXGroup;
 			children = (
-				953108402C86809F00CCD8DD /* BusinessLayer */,
-				953109282C87890A00CCD8DD /* BusinessLayerProtocol */,
-				9531084C2C86809F00CCD8DD /* BusinessLayerTests */,
-				9531083F2C86809F00CCD8DD /* Products */,
-				9531088B2C8681A500CCD8DD /* Frameworks */,
+				953108D32C87691300CCD8DD /* DataRepository */,
+				953108F92C8769A300CCD8DD /* DataRepositoryProtocol */,
+				953108D22C87691300CCD8DD /* Products */,
+				953108DF2C87691300CCD8DD /* DataRepositoryTests */,
+				953109132C876A8400CCD8DD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		9531083F2C86809F00CCD8DD /* Products */ = {
+		953108D22C87691300CCD8DD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9531083E2C86809F00CCD8DD /* BusinessLayer.framework */,
-				953108482C86809F00CCD8DD /* BusinessLayerTests.xctest */,
-				953109272C87890A00CCD8DD /* BusinessLayerProtocol.framework */,
+				953108D12C87691300CCD8DD /* DataRepository.framework */,
+				953108DB2C87691300CCD8DD /* DataRepositoryTests.xctest */,
+				953108F82C8769A300CCD8DD /* DataRepositoryProtocol.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		953108402C86809F00CCD8DD /* BusinessLayer */ = {
+		953108D32C87691300CCD8DD /* DataRepository */ = {
 			isa = PBXGroup;
 			children = (
-				953108932C86836400CCD8DD /* UseCases */,
-				953108412C86809F00CCD8DD /* BusinessLayer.h */,
-				953108422C86809F00CCD8DD /* BusinessLayer.docc */,
+				953109182C8786A000CCD8DD /* EndPoints */,
+				953108EB2C87694600CCD8DD /* Repositories */,
+				953108D42C87691300CCD8DD /* DataRepository.h */,
+				953108D52C87691300CCD8DD /* DataRepository.docc */,
 			);
-			path = BusinessLayer;
+			path = DataRepository;
 			sourceTree = "<group>";
 		};
-		9531084C2C86809F00CCD8DD /* BusinessLayerTests */ = {
+		953108DF2C87691300CCD8DD /* DataRepositoryTests */ = {
 			isa = PBXGroup;
 			children = (
-				9531084D2C86809F00CCD8DD /* BusinessLayerTests.swift */,
+				953108E02C87691300CCD8DD /* DataRepositoryTests.swift */,
 			);
-			path = BusinessLayerTests;
+			path = DataRepositoryTests;
 			sourceTree = "<group>";
 		};
-		9531088B2C8681A500CCD8DD /* Frameworks */ = {
+		953108EB2C87694600CCD8DD /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				9531093A2C878FF900CCD8DD /* DataRepositoryProtocol.framework */,
-				953109012C876A0900CCD8DD /* DataRepositoryProtocol.framework */,
-				9531088C2C8681A500CCD8DD /* APIGate.framework */,
+				953108ED2C87695200CCD8DD /* DefaultCharacterRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		953108F92C8769A300CCD8DD /* DataRepositoryProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				953109532C87CB8900CCD8DD /* RepositoryProtocols */,
+				9531091E2C87879900CCD8DD /* Models */,
+				953108FA2C8769A300CCD8DD /* DataRepositoryProtocol.h */,
+			);
+			path = DataRepositoryProtocol;
+			sourceTree = "<group>";
+		};
+		953109132C876A8400CCD8DD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9531094E2C87C9CF00CCD8DD /* APIGateProtocol.framework */,
+				9531094A2C87C8EF00CCD8DD /* APIGateProtocol.framework */,
+				953109142C876A8400CCD8DD /* APIGateProtocol.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		953108932C86836400CCD8DD /* UseCases */ = {
+		953109182C8786A000CCD8DD /* EndPoints */ = {
 			isa = PBXGroup;
 			children = (
-				953108942C8687CA00CCD8DD /* DefaultFetchCharactersUseCase.swift */,
+				953109192C8786B300CCD8DD /* CharactersEndpoint.swift */,
 			);
-			path = UseCases;
+			path = EndPoints;
 			sourceTree = "<group>";
 		};
-		953109282C87890A00CCD8DD /* BusinessLayerProtocol */ = {
+		9531091E2C87879900CCD8DD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				953109542C87CBC000CCD8DD /* BusinessLayerProtocols */,
-				953109292C87890A00CCD8DD /* BusinessLayerProtocol.h */,
+				9531091F2C8787A300CCD8DD /* Character.swift */,
 			);
-			path = BusinessLayerProtocol;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		953109542C87CBC000CCD8DD /* BusinessLayerProtocols */ = {
+		953109532C87CB8900CCD8DD /* RepositoryProtocols */ = {
 			isa = PBXGroup;
 			children = (
-				9531092E2C87891F00CCD8DD /* FetchCharactersUseCaseProtocol.swift */,
+				953108F12C87698300CCD8DD /* CharacterRepositoryProtocol.swift */,
 			);
-			path = BusinessLayerProtocols;
+			path = RepositoryProtocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		953108392C86809F00CCD8DD /* Headers */ = {
+		953108CC2C87691300CCD8DD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9531084F2C86809F00CCD8DD /* BusinessLayer.h in Headers */,
+				953108E22C87691300CCD8DD /* DataRepository.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		953109222C87890A00CCD8DD /* Headers */ = {
+		953108F32C8769A300CCD8DD /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9531092A2C87890A00CCD8DD /* BusinessLayerProtocol.h in Headers */,
+				953108FB2C8769A300CCD8DD /* DataRepositoryProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		9531083D2C86809F00CCD8DD /* BusinessLayer */ = {
+		953108D02C87691300CCD8DD /* DataRepository */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 953108522C86809F00CCD8DD /* Build configuration list for PBXNativeTarget "BusinessLayer" */;
+			buildConfigurationList = 953108E52C87691300CCD8DD /* Build configuration list for PBXNativeTarget "DataRepository" */;
 			buildPhases = (
-				953108392C86809F00CCD8DD /* Headers */,
-				9531083A2C86809F00CCD8DD /* Sources */,
-				9531083B2C86809F00CCD8DD /* Frameworks */,
-				9531083C2C86809F00CCD8DD /* Resources */,
-				9531088F2C8681A600CCD8DD /* Embed Frameworks */,
+				953108CC2C87691300CCD8DD /* Headers */,
+				953108CD2C87691300CCD8DD /* Sources */,
+				953108CE2C87691300CCD8DD /* Frameworks */,
+				953108CF2C87691300CCD8DD /* Resources */,
+				953109172C876A8400CCD8DD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = BusinessLayer;
-			productName = BusinessLayer;
-			productReference = 9531083E2C86809F00CCD8DD /* BusinessLayer.framework */;
+			name = DataRepository;
+			productName = DataRepository;
+			productReference = 953108D12C87691300CCD8DD /* DataRepository.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		953108472C86809F00CCD8DD /* BusinessLayerTests */ = {
+		953108DA2C87691300CCD8DD /* DataRepositoryTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 953108552C86809F00CCD8DD /* Build configuration list for PBXNativeTarget "BusinessLayerTests" */;
+			buildConfigurationList = 953108E82C87691300CCD8DD /* Build configuration list for PBXNativeTarget "DataRepositoryTests" */;
 			buildPhases = (
-				953108442C86809F00CCD8DD /* Sources */,
-				953108452C86809F00CCD8DD /* Frameworks */,
-				953108462C86809F00CCD8DD /* Resources */,
+				953108D72C87691300CCD8DD /* Sources */,
+				953108D82C87691300CCD8DD /* Frameworks */,
+				953108D92C87691300CCD8DD /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9531084B2C86809F00CCD8DD /* PBXTargetDependency */,
+				953108DE2C87691300CCD8DD /* PBXTargetDependency */,
 			);
-			name = BusinessLayerTests;
-			productName = BusinessLayerTests;
-			productReference = 953108482C86809F00CCD8DD /* BusinessLayerTests.xctest */;
+			name = DataRepositoryTests;
+			productName = DataRepositoryTests;
+			productReference = 953108DB2C87691300CCD8DD /* DataRepositoryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		953109262C87890A00CCD8DD /* BusinessLayerProtocol */ = {
+		953108F72C8769A300CCD8DD /* DataRepositoryProtocol */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9531092B2C87890A00CCD8DD /* Build configuration list for PBXNativeTarget "BusinessLayerProtocol" */;
+			buildConfigurationList = 953108FC2C8769A300CCD8DD /* Build configuration list for PBXNativeTarget "DataRepositoryProtocol" */;
 			buildPhases = (
-				953109222C87890A00CCD8DD /* Headers */,
-				953109232C87890A00CCD8DD /* Sources */,
-				953109242C87890A00CCD8DD /* Frameworks */,
-				953109252C87890A00CCD8DD /* Resources */,
-				9531093D2C878FFA00CCD8DD /* Embed Frameworks */,
+				953108F32C8769A300CCD8DD /* Headers */,
+				953108F42C8769A300CCD8DD /* Sources */,
+				953108F52C8769A300CCD8DD /* Frameworks */,
+				953108F62C8769A300CCD8DD /* Resources */,
+				953109512C87C9CF00CCD8DD /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = BusinessLayerProtocol;
-			productName = BusinessLayerProtocol;
-			productReference = 953109272C87890A00CCD8DD /* BusinessLayerProtocol.framework */;
+			name = DataRepositoryProtocol;
+			productName = DataRepositoryProtocol;
+			productReference = 953108F82C8769A300CCD8DD /* DataRepositoryProtocol.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		953108352C86809F00CCD8DD /* Project object */ = {
+		953108C82C87691300CCD8DD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					9531083D2C86809F00CCD8DD = {
+					953108D02C87691300CCD8DD = {
 						CreatedOnToolsVersion = 15.4;
 					};
-					953108472C86809F00CCD8DD = {
+					953108DA2C87691300CCD8DD = {
 						CreatedOnToolsVersion = 15.4;
 					};
-					953109262C87890A00CCD8DD = {
+					953108F72C8769A300CCD8DD = {
 						CreatedOnToolsVersion = 15.4;
-						LastSwiftMigration = 1540;
 					};
 				};
 			};
-			buildConfigurationList = 953108382C86809F00CCD8DD /* Build configuration list for PBXProject "BusinessLayer" */;
+			buildConfigurationList = 953108CB2C87691300CCD8DD /* Build configuration list for PBXProject "DataRepository" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -282,34 +305,34 @@
 				en,
 				Base,
 			);
-			mainGroup = 953108342C86809F00CCD8DD;
-			productRefGroup = 9531083F2C86809F00CCD8DD /* Products */;
+			mainGroup = 953108C72C87691300CCD8DD;
+			productRefGroup = 953108D22C87691300CCD8DD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9531083D2C86809F00CCD8DD /* BusinessLayer */,
-				953108472C86809F00CCD8DD /* BusinessLayerTests */,
-				953109262C87890A00CCD8DD /* BusinessLayerProtocol */,
+				953108D02C87691300CCD8DD /* DataRepository */,
+				953108DA2C87691300CCD8DD /* DataRepositoryTests */,
+				953108F72C8769A300CCD8DD /* DataRepositoryProtocol */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9531083C2C86809F00CCD8DD /* Resources */ = {
+		953108CF2C87691300CCD8DD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		953108462C86809F00CCD8DD /* Resources */ = {
+		953108D92C87691300CCD8DD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		953109252C87890A00CCD8DD /* Resources */ = {
+		953108F62C8769A300CCD8DD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -319,45 +342,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9531083A2C86809F00CCD8DD /* Sources */ = {
+		953108CD2C87691300CCD8DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9531092F2C87891F00CCD8DD /* FetchCharactersUseCaseProtocol.swift in Sources */,
-				953108952C8687CA00CCD8DD /* DefaultFetchCharactersUseCase.swift in Sources */,
-				953108432C86809F00CCD8DD /* BusinessLayer.docc in Sources */,
+				9531091A2C8786B300CCD8DD /* CharactersEndpoint.swift in Sources */,
+				953108D62C87691300CCD8DD /* DataRepository.docc in Sources */,
+				953109202C8787A300CCD8DD /* Character.swift in Sources */,
+				953108EF2C87695200CCD8DD /* DefaultCharacterRepository.swift in Sources */,
+				953109002C8769BE00CCD8DD /* CharacterRepositoryProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		953108442C86809F00CCD8DD /* Sources */ = {
+		953108D72C87691300CCD8DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9531084E2C86809F00CCD8DD /* BusinessLayerTests.swift in Sources */,
+				953108E12C87691300CCD8DD /* DataRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		953109232C87890A00CCD8DD /* Sources */ = {
+		953108F42C8769A300CCD8DD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				953109522C87CABB00CCD8DD /* DefaultFetchCharactersUseCase.swift in Sources */,
-				953109302C87891F00CCD8DD /* FetchCharactersUseCaseProtocol.swift in Sources */,
+				953109492C87C8AB00CCD8DD /* CharactersEndpoint.swift in Sources */,
+				953108FF2C8769B300CCD8DD /* CharacterRepositoryProtocol.swift in Sources */,
+				953109482C87C89800CCD8DD /* DefaultCharacterRepository.swift in Sources */,
+				953109212C8787A300CCD8DD /* Character.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9531084B2C86809F00CCD8DD /* PBXTargetDependency */ = {
+		953108DE2C87691300CCD8DD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9531083D2C86809F00CCD8DD /* BusinessLayer */;
-			targetProxy = 9531084A2C86809F00CCD8DD /* PBXContainerItemProxy */;
+			target = 953108D02C87691300CCD8DD /* DataRepository */;
+			targetProxy = 953108DD2C87691300CCD8DD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		953108502C86809F00CCD8DD /* Debug */ = {
+		953108E32C87691300CCD8DD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -410,7 +437,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -423,7 +450,7 @@
 			};
 			name = Debug;
 		};
-		953108512C86809F00CCD8DD /* Release */ = {
+		953108E42C87691300CCD8DD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -470,7 +497,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -482,7 +509,7 @@
 			};
 			name = Release;
 		};
-		953108532C86809F00CCD8DD /* Debug */ = {
+		953108E62C87691300CCD8DD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
@@ -504,7 +531,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MGS.RickCompanion.BusinessLayer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MGS.RickCompanion.DataRepository;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -514,7 +541,7 @@
 			};
 			name = Debug;
 		};
-		953108542C86809F00CCD8DD /* Release */ = {
+		953108E72C87691300CCD8DD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
@@ -536,7 +563,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MGS.RickCompanion.BusinessLayer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MGS.RickCompanion.DataRepository;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -546,7 +573,7 @@
 			};
 			name = Release;
 		};
-		953108562C86809F00CCD8DD /* Debug */ = {
+		953108E92C87691300CCD8DD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -554,7 +581,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MGS.RickCompanion.BusinessLayerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MGS.RickCompanion.DataRepositoryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -562,7 +589,7 @@
 			};
 			name = Debug;
 		};
-		953108572C86809F00CCD8DD /* Release */ = {
+		953108EA2C87691300CCD8DD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -570,7 +597,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.MGS.RickCompanion.BusinessLayerTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MGS.RickCompanion.DataRepositoryTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -578,11 +605,10 @@
 			};
 			name = Release;
 		};
-		9531092C2C87890A00CCD8DD /* Debug */ = {
+		953108FD2C8769A300CCD8DD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -593,7 +619,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -602,22 +627,20 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MGS.RickCompanion.BusinessLayerProtocol;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MGS.RickCompanion.DataRepositoryProtocol;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		9531092D2C87890A00CCD8DD /* Release */ = {
+		953108FE2C8769A300CCD8DD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
-				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -628,7 +651,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -637,7 +659,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MGS.RickCompanion.BusinessLayerProtocol;
+				PRODUCT_BUNDLE_IDENTIFIER = com.MGS.RickCompanion.DataRepositoryProtocol;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -650,43 +672,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		953108382C86809F00CCD8DD /* Build configuration list for PBXProject "BusinessLayer" */ = {
+		953108CB2C87691300CCD8DD /* Build configuration list for PBXProject "DataRepository" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				953108502C86809F00CCD8DD /* Debug */,
-				953108512C86809F00CCD8DD /* Release */,
+				953108E32C87691300CCD8DD /* Debug */,
+				953108E42C87691300CCD8DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		953108522C86809F00CCD8DD /* Build configuration list for PBXNativeTarget "BusinessLayer" */ = {
+		953108E52C87691300CCD8DD /* Build configuration list for PBXNativeTarget "DataRepository" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				953108532C86809F00CCD8DD /* Debug */,
-				953108542C86809F00CCD8DD /* Release */,
+				953108E62C87691300CCD8DD /* Debug */,
+				953108E72C87691300CCD8DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		953108552C86809F00CCD8DD /* Build configuration list for PBXNativeTarget "BusinessLayerTests" */ = {
+		953108E82C87691300CCD8DD /* Build configuration list for PBXNativeTarget "DataRepositoryTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				953108562C86809F00CCD8DD /* Debug */,
-				953108572C86809F00CCD8DD /* Release */,
+				953108E92C87691300CCD8DD /* Debug */,
+				953108EA2C87691300CCD8DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9531092B2C87890A00CCD8DD /* Build configuration list for PBXNativeTarget "BusinessLayerProtocol" */ = {
+		953108FC2C8769A300CCD8DD /* Build configuration list for PBXNativeTarget "DataRepositoryProtocol" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				9531092C2C87890A00CCD8DD /* Debug */,
-				9531092D2C87890A00CCD8DD /* Release */,
+				953108FD2C8769A300CCD8DD /* Debug */,
+				953108FE2C8769A300CCD8DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 953108352C86809F00CCD8DD /* Project object */;
+	rootObject = 953108C82C87691300CCD8DD /* Project object */;
 }

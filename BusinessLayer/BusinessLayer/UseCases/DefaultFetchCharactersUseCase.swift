@@ -1,17 +1,15 @@
 //
-//  FetchCharactersUseCase.swift
+//  DefaultFetchCharactersUseCase.swift
 //  BusinessLayer
 //
 //  Created by Jimmy on 03/09/2024.
 //
 
 import Foundation
+import DataRepositoryProtocol
 
-public protocol FetchCharactersUseCaseProtocol {
-    func execute(page: Int, completion: @escaping (Result<CharacterResponse, Error>) -> Void)
-}
-
-public class FetchCharactersUseCase: FetchCharactersUseCaseProtocol {
+// Default implementation
+public class DefaultFetchCharactersUseCase: FetchCharactersUseCaseProtocol {
     private let characterRepository: CharacterRepositoryProtocol
 
     public init(characterRepository: CharacterRepositoryProtocol) {
