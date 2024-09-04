@@ -6,10 +6,10 @@
 //
 
 import UIKit
-import DataRepositoryProtocol
+import DataRepository
 
 class CharacterDetailsViewController: UIViewController {
-    weak var coordinator: CharactersCoordinator?
+    weak var coordinator: CharacterDetailCoordinator?
     private let character: Character
     
     private let scrollView = UIScrollView()
@@ -20,8 +20,9 @@ class CharacterDetailsViewController: UIViewController {
     private let speciesLabel = UILabel()
     private let genderLabel = UILabel()
     
-    init(character: Character) {
+    init(character: Character, coordinator: CharacterDetailCoordinator) {
         self.character = character
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -38,7 +39,7 @@ class CharacterDetailsViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if isMovingFromParent {
-            coordinator?.popViewController()
+            coordinator?.finish()
         }
     }
     

@@ -8,23 +8,18 @@
 import UIKit
 
 protocol Coordinator: AnyObject {
-    var navigationController: UINavigationController { get set }
     var parentCoordinator: Coordinator? { get set }
+    var navigationController: UINavigationController { get }
     var childCoordinators: [Coordinator] { get set }
     
     func start()
-    func coordinate(to coordinator: Coordinator)
+    func finish()
     func childDidFinish(_ child: Coordinator?)
 }
 
 extension Coordinator {
-    func coordinate(to coordinator: Coordinator) {
-        childCoordinators.append(coordinator)
-        coordinator.parentCoordinator = self
-        coordinator.start()
-    }
-    
     func childDidFinish(_ child: Coordinator?) {
+        // Default implementation
         for (index, coordinator) in childCoordinators.enumerated() {
             if coordinator === child {
                 childCoordinators.remove(at: index)
@@ -32,9 +27,4 @@ extension Coordinator {
             }
         }
     }
-}
-
-protocol ViewCoordinator: Coordinator {
-    associatedtype ViewController: UIViewController
-    var viewController: ViewController? { get set }
 }

@@ -4,28 +4,17 @@
 //
 //  Created by Jimmy on 03/09/2024.
 //
-import APIGateProtocol
+import APIGate
 
-public struct CharactersEndpoint: Endpoint {
-    public var path: String {
-        return "https://rickandmortyapi.com/api/character"
-    }
+struct CharactersEndpoint: Endpoint {
+    let page: Int
+    
+    var path: String { "https://rickandmortyapi.com/api/character" }
+    var method: HTTPMethod { .get }
+    var parameters: [String: Any]? { ["page": page] }
+    var headers: [String: String]? { nil }
 
-    public var method: HTTPMethod {
-        return .get
-    }
-
-    public var parameters: [String: Any]? {
-        return ["page": page]
-    }
-
-    public var headers: [String: String]? {
-        return nil
-    }
-
-    private let page: Int
-
-    public init(page: Int) {
+    init(page: Int) {
         self.page = page
     }
 }

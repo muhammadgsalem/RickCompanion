@@ -5,64 +5,69 @@
 //  Created by Jimmy on 03/09/2024.
 //
 
-
 import Foundation
-// Default implementation
-public class URLSessionNetworking: NetworkProtocol {
+
+final class URLSessionNetworking: NetworkProtocol {
     private let session: URLSession
+    private let decoder: JSONDecoder
     
-    public init(session: URLSession = .shared) {
+    init(session: URLSession = .shared, decoder: JSONDecoder = JSONDecoder()) {
         self.session = session
+        self.decoder = decoder
     }
     
-    public func request<T: Decodable>(_ endpoint: Endpoint, completion: @escaping (Result<T, Error>) -> Void) {
+    func request<T: Decodable>(_ endpoint: Endpoint, completion: @escaping (Result<T, NetworkError>) -> Void) {
         guard let url = URL(string: endpoint.path) else {
-            completion(.failure(NetworkError.invalidURL))
+            completion(.failure(.invalidURL))
             return
         }
 
         var request = URLRequest(url: url)
-        request.httpMethod = endpoint.method.rawValue
-        if let headers = endpoint.headers {
-            for (key, value) in headers {
-                request.setValue(value, forHTTPHeaderField: key)
-            }
-        }
-
-        if let parameters = endpoint.parameters {
-            request.url = url.appendingQueryParameters(parameters)
-        }
+        configureRequest(&request, with: endpoint)
         
-        let task = session.dataTask(with: request) { data, response, error in
+        let task = session.dataTask(with: request) { [weak self] data, response, error in
+            guard let self = self else { return }
+            
             if let error = error {
-                completion(.failure(error))
+                completion(.failure(.unknownError(error)))
                 return
             }
             
-            guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
-                completion(.failure(NetworkError.invalidResponse))
+            guard let httpResponse = response as? HTTPURLResponse else {
+                completion(.failure(.invalidResponse))
+                return
+            }
+            
+            guard (200 ... 299).contains(httpResponse.statusCode) else {
+                completion(.failure(.serverError(statusCode: httpResponse.statusCode)))
                 return
             }
             
             guard let data = data else {
-                completion(.failure(NetworkError.noData))
+                completion(.failure(.noData))
                 return
             }
             
             do {
-                let decodedData = try JSONDecoder().decode(T.self, from: data)
+                let decodedData = try self.decoder.decode(T.self, from: data)
                 completion(.success(decodedData))
             } catch {
-                completion(.failure(error))
+                completion(.failure(.decodingError))
             }
         }
         
         task.resume()
     }
-}
-
-public enum NetworkError: Error {
-    case invalidURL
-    case invalidResponse
-    case noData
+    
+    private func configureRequest(_ request: inout URLRequest, with endpoint: Endpoint) {
+        request.httpMethod = endpoint.method.rawValue
+        
+        endpoint.headers?.forEach { key, value in
+            request.setValue(value, forHTTPHeaderField: key)
+        }
+        
+        if let parameters = endpoint.parameters {
+            request.url = request.url?.appendingQueryParameters(parameters)
+        }
+    }
 }

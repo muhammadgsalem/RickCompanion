@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import DataRepositoryProtocol
+import DataRepository
 
 struct CharacterCellView: View {
     let character: Character
