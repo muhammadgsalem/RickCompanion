@@ -5,22 +5,23 @@
 //  Created by Jimmy on 03/09/2024.
 //
 
-import BusinessLayerProtocol
-import DataRepositoryProtocol
+import BusinessLayer
+import DataRepository
 import Foundation
 
-protocol CharactersViewModelProtocol {
+protocol CharactersViewModelProtocol: AnyObject {
+    var characters: [Character] { get }
     func loadCharacters(onSuccess: @escaping () -> Void, onError: @escaping (Error) -> Void)
     func resetPagination()
-    var characters: [Character] { get }
+    func loadMoreCharactersIfNeeded(for index: Int)
 }
 
 class CharactersViewModel: CharactersViewModelProtocol {
     private let fetchCharactersUseCase: FetchCharactersUseCaseProtocol
-    private var currentPage = 1 // Tracks the current page
-    private var isFetching = false // Prevents multiple fetches at the same time
+    private var currentPage = 1
+    private var isFetching = false
     private var hasMorePages = true
-    var characters = [Character]()
+    private(set) var characters = [Character]()
 
     init(fetchCharactersUseCase: FetchCharactersUseCaseProtocol) {
         self.fetchCharactersUseCase = fetchCharactersUseCase
@@ -36,7 +37,7 @@ class CharactersViewModel: CharactersViewModelProtocol {
 
             switch result {
             case .success(let newCharacters):
-                self.hasMorePages = (newCharacters.info.next != nil) // No more pages to load
+                self.hasMorePages = (newCharacters.info.next != nil)
                 self.characters.append(contentsOf: newCharacters.results)
                 self.currentPage += 1
                 onSuccess()
@@ -50,5 +51,10 @@ class CharactersViewModel: CharactersViewModelProtocol {
         currentPage = 1
         hasMorePages = true
         characters.removeAll()
+    }
+
+    func loadMoreCharactersIfNeeded(for index: Int) {
+        guard index == characters.count - 1 else { return }
+        loadCharacters(onSuccess: {}, onError: { _ in })
     }
 }

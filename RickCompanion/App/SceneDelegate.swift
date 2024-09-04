@@ -5,14 +5,12 @@
 //  Created by Jimmy on 02/09/2024.
 //
 
-import APIGateProtocol
-import BusinessLayerProtocol
-import DataRepositoryProtocol
+
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-    var mainCoordinator: MainCoordinator?
+    var appCoordinator: AppCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -21,12 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = UINavigationController()
 
         // Initialize the main coordinator with the navigation controller
-        // Initialize the DependencyContainer with concrete dependencies
-        let dependencyContainer = DependencyContainerFactory.defaultContainer()
-        mainCoordinator = MainCoordinator(navigationController: navigationController, dependencyContainer: dependencyContainer)
-
-        // Start the coordinator to set up the initial view controller
-        mainCoordinator?.start()
+        appCoordinator = AppCoordinator(navigationController: navigationController)
+        // Start the coordinator
+        appCoordinator?.start()
 
         // Create the window and set the root view controller
         window = UIWindow(windowScene: windowScene)

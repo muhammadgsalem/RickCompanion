@@ -1,15 +1,13 @@
 //
-//  CharactersCoordinator.swift
+//  AppCoordinator.swift
 //  RickCompanion
 //
-//  Created by Jimmy on 04/09/2024.
+//  Created by Jimmy on 03/09/2024.
 //
 
 import UIKit
-import DataRepository
 
-class CharactersCoordinator: Coordinator {
-    
+class AppCoordinator: Coordinator {
     weak var parentCoordinator: Coordinator?
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
@@ -19,15 +17,14 @@ class CharactersCoordinator: Coordinator {
     }
     
     func start() {
-        let charactersVC = DependencyContainer.shared.makeCharactersViewController(coordinator: self)
-        navigationController.pushViewController(charactersVC, animated: false)
+        showCharactersList()
     }
     
-    func showCharacterDetails(_ character: Character) {
-        let detailCoordinator = CharacterDetailCoordinator(navigationController: navigationController, character: character)
-        detailCoordinator.parentCoordinator = self
-        childCoordinators.append(detailCoordinator)
-        detailCoordinator.start()
+    private func showCharactersList() {
+        let charactersCoordinator = CharactersCoordinator(navigationController: navigationController)
+        charactersCoordinator.parentCoordinator = self
+        childCoordinators.append(charactersCoordinator)
+        charactersCoordinator.start()
     }
     
     func childDidFinish(_ child: Coordinator?) {
@@ -40,6 +37,8 @@ class CharactersCoordinator: Coordinator {
     }
     
     func finish() {
+        // AppCoordinator is the root coordinator, so it doesn't need to notify any parent
+        // However, we can use this method to perform any cleanup if needed
         childCoordinators.removeAll()
     }
 }
