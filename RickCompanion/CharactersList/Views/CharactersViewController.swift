@@ -104,17 +104,11 @@ class CharactersViewController: UIViewController {
         ])
 
         // Add filter view to the header
-        let swiftUIFilterView = FilterView(
-            selectedFilter: Binding(
-                get: { self.viewModel.currentFilter },
-                set: { self.viewModel.applyFilter($0) }
-            ),
-            onFilterSelected: { [weak self] filter in
-                self?.viewModel.applyFilter(filter)
-                self?.loadCharacters()
-            }
-        )
-
+        let swiftUIFilterView = FilterView(onFilterSelected: { [weak self] newFilter in
+            self?.viewModel.applyFilter(newFilter)
+            self?.loadCharacters()
+        })
+        
         filterView = UIHostingController(rootView: swiftUIFilterView)
         addChild(filterView)
         headerView.addSubview(filterView.view)
