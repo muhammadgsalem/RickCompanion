@@ -34,7 +34,9 @@
 		9531098A2C88C12600CCD8DD /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109892C88C12600CCD8DD /* FilterView.swift */; };
 		9531098E2C88D6D600CCD8DD /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531098D2C88D6D600CCD8DD /* ColorExtension.swift */; };
 		953109972C89BE4700CCD8DD /* CharacterDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109962C89BE4700CCD8DD /* CharacterDetailsView.swift */; };
-		9531099F2C89F20B00CCD8DD /* PillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531099E2C89F20B00CCD8DD /* PillView.swift */; };
+		953109A22C89F6FB00CCD8DD /* CharacterImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109A12C89F6FB00CCD8DD /* CharacterImageView.swift */; };
+		953109A52C8A0A1F00CCD8DD /* CharacterAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109A42C8A0A1F00CCD8DD /* CharacterAsyncImage.swift */; };
+		953109A72C8A0A3D00CCD8DD /* StatusPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109A62C8A0A3D00CCD8DD /* StatusPill.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,7 +109,9 @@
 		953109892C88C12600CCD8DD /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		9531098D2C88D6D600CCD8DD /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		953109962C89BE4700CCD8DD /* CharacterDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsView.swift; sourceTree = "<group>"; };
-		9531099E2C89F20B00CCD8DD /* PillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillView.swift; sourceTree = "<group>"; };
+		953109A12C89F6FB00CCD8DD /* CharacterImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImageView.swift; sourceTree = "<group>"; };
+		953109A42C8A0A1F00CCD8DD /* CharacterAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAsyncImage.swift; sourceTree = "<group>"; };
+		953109A62C8A0A3D00CCD8DD /* StatusPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPill.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,8 +289,8 @@
 		953108C42C87343B00CCD8DD /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				953109A02C89F6EC00CCD8DD /* Views */,
 				953108C52C87345900CCD8DD /* CharactersTableViewCell.swift */,
-				953108BF2C87117100CCD8DD /* CharacterCellView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -326,7 +330,7 @@
 		9531095F2C87D9E600CCD8DD /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
-				9531099D2C89F1FA00CCD8DD /* CommonViews */,
+				953109A32C8A0A1400CCD8DD /* CommonViews */,
 				9531098D2C88D6D600CCD8DD /* ColorExtension.swift */,
 			);
 			path = Utilites;
@@ -349,10 +353,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		9531099D2C89F1FA00CCD8DD /* CommonViews */ = {
+		953109A02C89F6EC00CCD8DD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9531099E2C89F20B00CCD8DD /* PillView.swift */,
+				953108BF2C87117100CCD8DD /* CharacterCellView.swift */,
+				953109A12C89F6FB00CCD8DD /* CharacterImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		953109A32C8A0A1400CCD8DD /* CommonViews */ = {
+			isa = PBXGroup;
+			children = (
+				953109A42C8A0A1F00CCD8DD /* CharacterAsyncImage.swift */,
+				953109A62C8A0A3D00CCD8DD /* StatusPill.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -492,6 +506,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				953109A22C89F6FB00CCD8DD /* CharacterImageView.swift in Sources */,
 				953109872C88A09D00CCD8DD /* CharacterDetailCoordinator.swift in Sources */,
 				953108BB2C86A96900CCD8DD /* CharactersViewController.swift in Sources */,
 				953108C02C87117100CCD8DD /* CharacterCellView.swift in Sources */,
@@ -504,10 +519,11 @@
 				953107AA2C863C6100CCD8DD /* AppDelegate.swift in Sources */,
 				9531098E2C88D6D600CCD8DD /* ColorExtension.swift in Sources */,
 				953109462C87C78D00CCD8DD /* DependencyContainerProtocol.swift in Sources */,
-				9531099F2C89F20B00CCD8DD /* PillView.swift in Sources */,
 				953108B02C86961E00CCD8DD /* Coordinator.swift in Sources */,
+				953109A52C8A0A1F00CCD8DD /* CharacterAsyncImage.swift in Sources */,
 				953108A42C86942400CCD8DD /* DependencyContainer.swift in Sources */,
 				9531098A2C88C12600CCD8DD /* FilterView.swift in Sources */,
+				953109A72C8A0A3D00CCD8DD /* StatusPill.swift in Sources */,
 				953108AC2C86956900CCD8DD /* CharactersViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
