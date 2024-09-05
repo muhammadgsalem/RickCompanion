@@ -8,7 +8,7 @@
 import Foundation
 import DataRepository
 
-protocol DependencyContainerProtocol {
+protocol DependencyContainerProtocol: CharactersViewModelFactory {
     func makeCharactersViewModel() -> CharactersViewModelProtocol
     func makeCharactersViewController(coordinator: CharactersCoordinator) -> CharactersViewController
     func makeCharacterDetailsViewController(character: Character, coordinator: CharacterDetailCoordinator) -> CharacterDetailsViewController

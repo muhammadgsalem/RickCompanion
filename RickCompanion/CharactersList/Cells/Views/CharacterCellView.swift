@@ -13,26 +13,8 @@ struct CharacterCellView: View {
     
     var body: some View {
         HStack(alignment: .top, spacing: 10) {
-            if let url = character?.image {
-                CharacterImageView(imageURL: url)
-            }
-            
-            
-            VStack(alignment: .leading, spacing: 4) {
-                if let name = character?.name {
-                    Text(name)
-                        .font(.headline)
-                        .bold()
-                }
-                
-                if let species = character?.species {
-                    Text(species)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
-                }
-
-            }
-            
+            characterImage
+            characterInfo
             Spacer()
         }
         .frame(height: 120)
@@ -42,6 +24,29 @@ struct CharacterCellView: View {
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .padding(.horizontal)
         .padding(.vertical, 4)
+    }
+
+    @ViewBuilder
+    private var characterImage: some View {
+        if let url = character?.image {
+            CharacterImageView(imageURL: url)
+        }
+    }
+
+    @ViewBuilder
+    private var characterInfo: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            if let name = character?.name {
+                Text(name)
+                    .font(.headline)
+                    .bold()
+            }
+            if let species = character?.species {
+                Text(species)
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+        }
     }
     
     @ViewBuilder
