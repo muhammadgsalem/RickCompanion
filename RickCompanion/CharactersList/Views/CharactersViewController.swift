@@ -50,11 +50,11 @@ class CharactersViewController: UIViewController {
         viewModel.delegate = self
         loadCharacters()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
-    
+
     private func setupUI() {
         view.backgroundColor = .white
 
@@ -93,16 +93,16 @@ class CharactersViewController: UIViewController {
     private func createHeaderView() -> UIView {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 150))
         headerView.backgroundColor = .white
-        
+
         headerView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
+
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 16),
             titleLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16)
         ])
-        
+
         // Add filter view to the header
         let swiftUIFilterView = FilterView(
             selectedFilter: Binding(
@@ -110,15 +110,16 @@ class CharactersViewController: UIViewController {
                 set: { self.viewModel.applyFilter($0) }
             ),
             onFilterSelected: { [weak self] filter in
+                self?.viewModel.applyFilter(filter)
                 self?.loadCharacters()
             }
         )
-        
+
         filterView = UIHostingController(rootView: swiftUIFilterView)
         addChild(filterView)
         headerView.addSubview(filterView.view)
         filterView.didMove(toParent: self)
-        
+
         filterView.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             filterView.view.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
@@ -127,10 +128,9 @@ class CharactersViewController: UIViewController {
             filterView.view.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -16),
             filterView.view.heightAnchor.constraint(equalToConstant: 44)
         ])
-        
+
         return headerView
     }
-
 
     private func configureRefreshControl() {
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
@@ -148,7 +148,10 @@ class CharactersViewController: UIViewController {
 
     private func showError(_ error: Error) {
         let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
+            self?.loadCharacters()
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(alert, animated: true)
     }
 
@@ -165,7 +168,6 @@ class CharactersViewController: UIViewController {
             self?.view.isUserInteractionEnabled = true
         }
     }
-
 }
 
 extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {

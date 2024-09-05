@@ -32,13 +32,16 @@ class CharactersViewModel: CharactersViewModelProtocol {
             delegate?.viewModelDidUpdateState(self, state: state)
         }
     }
-
+    var canLoadMorePages: Bool {
+        return !isFetching && hasMorePages
+    }
+    
     init(fetchCharactersUseCase: FetchCharactersUseCaseProtocol) {
         self.fetchCharactersUseCase = fetchCharactersUseCase
     }
 
     func loadCharacters() {
-        guard !isFetching && hasMorePages else { return }
+        guard canLoadMorePages else { return }
         isFetching = true
         state = .loading
 
