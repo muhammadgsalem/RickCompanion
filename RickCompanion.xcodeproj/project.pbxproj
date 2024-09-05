@@ -37,6 +37,7 @@
 		953109A22C89F6FB00CCD8DD /* CharacterImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109A12C89F6FB00CCD8DD /* CharacterImageView.swift */; };
 		953109A52C8A0A1F00CCD8DD /* CharacterAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109A42C8A0A1F00CCD8DD /* CharacterAsyncImage.swift */; };
 		953109A72C8A0A3D00CCD8DD /* StatusPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109A62C8A0A3D00CCD8DD /* StatusPill.swift */; };
+		953109B02C8A23CF00CCD8DD /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109AF2C8A23CF00CCD8DD /* FilterButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		953109A12C89F6FB00CCD8DD /* CharacterImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImageView.swift; sourceTree = "<group>"; };
 		953109A42C8A0A1F00CCD8DD /* CharacterAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAsyncImage.swift; sourceTree = "<group>"; };
 		953109A62C8A0A3D00CCD8DD /* StatusPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPill.swift; sourceTree = "<group>"; };
+		953109AF2C8A23CF00CCD8DD /* FilterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +256,7 @@
 			children = (
 				953108B92C86A96900CCD8DD /* CharactersViewController.swift */,
 				953109892C88C12600CCD8DD /* FilterView.swift */,
+				953109AF2C8A23CF00CCD8DD /* FilterButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				953109972C89BE4700CCD8DD /* CharacterDetailsView.swift in Sources */,
 				953108B82C869A3F00CCD8DD /* SceneDelegate.swift in Sources */,
 				953108C62C87345A00CCD8DD /* CharactersTableViewCell.swift in Sources */,
+				953109B02C8A23CF00CCD8DD /* FilterButton.swift in Sources */,
 				953109582C87D37500CCD8DD /* CharacterDetailsViewController.swift in Sources */,
 				953108B32C86963C00CCD8DD /* AppCoordinator.swift in Sources */,
 				9531095C2C87D59200CCD8DD /* CharactersCoordinator.swift in Sources */,
