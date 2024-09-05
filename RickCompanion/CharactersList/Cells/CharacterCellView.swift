@@ -35,6 +35,7 @@ struct CharacterCellView: View {
             VStack(alignment: .leading) {
                 Text(character?.name ?? "")
                     .font(.headline)
+                    .bold()
                 Text(character?.species ?? "")
                     .font(.subheadline)
                     .foregroundColor(.secondary)

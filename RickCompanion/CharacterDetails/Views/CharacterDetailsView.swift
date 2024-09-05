@@ -17,7 +17,7 @@ struct CharacterDetailsView: View {
         ScrollView {
             VStack(spacing: 0) {
                 ZStack(alignment: .topLeading) {
-                    PreviewableAsyncImage(url: character?.image) { phase in
+                    AsyncImage(url: character?.image) { phase in
                         switch phase {
                         case .empty:
                             ProgressView()
@@ -55,18 +55,37 @@ struct CharacterDetailsView: View {
                     .padding(.top, 60)
                     .padding(.leading, 20)
                 }
+                VStack(alignment: .leading) {
+                    HStack {
+                        VStack(alignment: .leading) {
+                                Text(character?.name ?? "")
+                                    .font(.title)
+                                    .bold()
+                                HStack(spacing: 0) {
+                                    Text(character?.species ?? "")
+                                        .font(.subheadline)
+                                        .padding(.trailing, 2)
+                                    Text("• \(character?.gender.rawValue ?? "")")
+                                        .font(.subheadline)
+                                        .foregroundStyle(.gray)
+                                }
+                            }
+                        
+                        Spacer()
+                        StatusPill(status: "Status")
 
-                HStack(alignment: .center) {
-                    VStack {
-                        Text(character?.name ?? "")
-                            .font(.largeTitle)
-                        HStack {
-                            Text(character?.species ?? "")
-                                .font(.subheadline)
-                            Text("• \(character?.gender.rawValue ?? "")")
-                                .font(.subheadline)
-                                .foregroundStyle(.gray)
-                        }
+                    }.padding()
+
+                    HStack(spacing: 0) {
+                        Text("Location : ")
+                            .font(.title3)
+                            .fontWeight(.medium)
+                            .foregroundStyle(.black)
+                            .padding(.leading)
+                        Text(character?.location.name ?? "")
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(.gray)
                     }
                 }
             }
@@ -81,21 +100,5 @@ struct CharacterDetailsView: View {
 }
 
 #Preview {
-    CharacterDetailsView(character: nil, onBackActionSelected: {  })
-}
-
-struct PreviewableAsyncImage<Content: View>: View {
-    let url: URL?
-    @ViewBuilder let content: (AsyncImagePhase) -> Content
-
-    var body: some View {
-        if let url = url, ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
-            // Use a local image for previews
-            Image("MockedImage")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-        } else {
-            AsyncImage(url: url, content: content)
-        }
-    }
+    CharacterDetailsView(character: .mockCharacter, onBackActionSelected: {})
 }
