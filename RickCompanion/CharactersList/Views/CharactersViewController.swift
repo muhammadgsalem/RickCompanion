@@ -50,10 +50,13 @@ class CharactersViewController: UIViewController {
         viewModel.delegate = self
         loadCharacters()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     private func setupUI() {
         view.backgroundColor = .white
-        navigationController?.setNavigationBarHidden(true, animated: false)
 
         view.addSubview(tableView)
 
