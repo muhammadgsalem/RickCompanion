@@ -16,11 +16,11 @@ class AppCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
-    func start() {
+    @MainActor func start() {
         showCharactersList()
     }
     
-    private func showCharactersList() {
+    @MainActor private func showCharactersList() {
         let charactersCoordinator = CharactersCoordinator(navigationController: navigationController)
         charactersCoordinator.parentCoordinator = self
         childCoordinators.append(charactersCoordinator)

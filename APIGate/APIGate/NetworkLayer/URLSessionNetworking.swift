@@ -16,47 +16,30 @@ final class URLSessionNetworking: NetworkProtocol {
         self.decoder = decoder
     }
     
-    func request<T: Decodable>(_ endpoint: Endpoint, completion: @escaping (Result<T, NetworkError>) -> Void) {
+    func request<T: Decodable>(_ endpoint: Endpoint) async throws -> T {
         guard let url = URL(string: endpoint.path) else {
-            completion(.failure(.invalidURL))
-            return
+            throw NetworkError.invalidURL
         }
 
         var request = URLRequest(url: url)
         configureRequest(&request, with: endpoint)
         
-        let task = session.dataTask(with: request) { [weak self] data, response, error in
-            guard let self = self else { return }
-            
-            if let error = error {
-                completion(.failure(.unknownError(error)))
-                return
-            }
-            
-            guard let httpResponse = response as? HTTPURLResponse else {
-                completion(.failure(.invalidResponse))
-                return
-            }
-            
-            guard (200 ... 299).contains(httpResponse.statusCode) else {
-                completion(.failure(.serverError(statusCode: httpResponse.statusCode)))
-                return
-            }
-            
-            guard let data = data else {
-                completion(.failure(.noData))
-                return
-            }
-            
-            do {
-                let decodedData = try self.decoder.decode(T.self, from: data)
-                completion(.success(decodedData))
-            } catch {
-                completion(.failure(.decodingError))
-            }
+        let (data, response) = try await session.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse else {
+            throw NetworkError.invalidResponse
         }
         
-        task.resume()
+        guard (200...299).contains(httpResponse.statusCode) else {
+            throw NetworkError.serverError(statusCode: httpResponse.statusCode)
+        }
+        
+        do {
+            let decodedData = try decoder.decode(T.self, from: data)
+            return decodedData
+        } catch {
+            throw NetworkError.decodingError
+        }
     }
     
     private func configureRequest(_ request: inout URLRequest, with endpoint: Endpoint) {

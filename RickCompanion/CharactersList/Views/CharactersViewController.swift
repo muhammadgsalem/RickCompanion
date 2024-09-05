@@ -48,7 +48,9 @@ class CharactersViewController: UIViewController {
         configureRefreshControl()
         setupActivityIndicator()
         viewModel.delegate = self
-        loadCharacters()
+        Task {
+            await loadCharacters()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -106,7 +108,9 @@ class CharactersViewController: UIViewController {
         // Add filter view to the header
         let swiftUIFilterView = FilterView(onFilterSelected: { [weak self] newFilter in
             self?.viewModel.applyFilter(newFilter)
-            self?.loadCharacters()
+            Task {
+                await self?.loadCharacters()
+            }
         })
         
         filterView = UIHostingController(rootView: swiftUIFilterView)
@@ -134,16 +138,23 @@ class CharactersViewController: UIViewController {
 
     @objc private func refreshData() {
         viewModel.resetPagination()
-        viewModel.loadCharacters()
+        Task {
+            await loadCharacters()
+        }
     }
 
-    private func loadCharacters() {
-        viewModel.loadCharacters()
+    private func loadCharacters() async {
+        await viewModel.loadCharacters()
     }
 
     private func showError(_ error: Error) {
         let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        alert.addAction(UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
+            Task {
+                await self?.loadCharacters()
+            }
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         present(alert, animated: true)
     }
 
@@ -190,7 +201,9 @@ extension CharactersViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         let maxIndex = indexPaths.map { $0.row }.max() ?? 0
         if maxIndex >= viewModel.characters.count - 1 {
-            loadCharacters()
+            Task {
+                await loadCharacters()
+            }
         }
     }
 }

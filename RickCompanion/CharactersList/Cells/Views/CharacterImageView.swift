@@ -21,6 +21,7 @@ struct CharacterImageView: View {
             case .failure:
                 Image(systemName: "photo")
                     .foregroundColor(.gray)
+                    .frame(width: 80, height: 80)
             @unknown default:
                 Color.gray
             }

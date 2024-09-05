@@ -28,11 +28,11 @@ final class DependencyContainer: DependencyContainerProtocol {
         self.businessLayerDIContainer = businessLayerDIContainer
     }
     
-    func makeCharactersViewModel() -> CharactersViewModelProtocol {
+    @MainActor func makeCharactersViewModel() -> CharactersViewModelProtocol {
         CharactersViewModel(fetchCharactersUseCase: businessLayerDIContainer.makeFetchCharactersUseCase())
     }
     
-    func makeCharactersViewController(coordinator: CharactersCoordinator) -> CharactersViewController {
+    @MainActor func makeCharactersViewController(coordinator: CharactersCoordinator) -> CharactersViewController {
         let viewModel = makeCharactersViewModel()
         let viewController = CharactersViewController(viewModel: viewModel)
         viewController.coordinator = coordinator

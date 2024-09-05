@@ -18,7 +18,7 @@ class CharactersCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
-    func start() {
+    @MainActor func start() {
         let charactersVC = DependencyContainer.shared.makeCharactersViewController(coordinator: self)
         navigationController.pushViewController(charactersVC, animated: false)
     }

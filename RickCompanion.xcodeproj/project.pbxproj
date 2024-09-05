@@ -38,6 +38,7 @@
 		953109A52C8A0A1F00CCD8DD /* CharacterAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109A42C8A0A1F00CCD8DD /* CharacterAsyncImage.swift */; };
 		953109A72C8A0A3D00CCD8DD /* StatusPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109A62C8A0A3D00CCD8DD /* StatusPill.swift */; };
 		953109B02C8A23CF00CCD8DD /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109AF2C8A23CF00CCD8DD /* FilterButton.swift */; };
+		953109B22C8A295900CCD8DD /* CharactersViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109B12C8A295900CCD8DD /* CharactersViewModelProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		953109A42C8A0A1F00CCD8DD /* CharacterAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterAsyncImage.swift; sourceTree = "<group>"; };
 		953109A62C8A0A3D00CCD8DD /* StatusPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPill.swift; sourceTree = "<group>"; };
 		953109AF2C8A23CF00CCD8DD /* FilterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
+		953109B12C8A295900CCD8DD /* CharactersViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModelProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				953108AB2C86956900CCD8DD /* CharactersViewModel.swift */,
+				953109B12C8A295900CCD8DD /* CharactersViewModelProtocol.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -526,6 +529,7 @@
 				953108B02C86961E00CCD8DD /* Coordinator.swift in Sources */,
 				953109A52C8A0A1F00CCD8DD /* CharacterAsyncImage.swift in Sources */,
 				953108A42C86942400CCD8DD /* DependencyContainer.swift in Sources */,
+				953109B22C8A295900CCD8DD /* CharactersViewModelProtocol.swift in Sources */,
 				9531098A2C88C12600CCD8DD /* FilterView.swift in Sources */,
 				953109A72C8A0A3D00CCD8DD /* StatusPill.swift in Sources */,
 				953108AC2C86956900CCD8DD /* CharactersViewModel.swift in Sources */,
