@@ -5,6 +5,7 @@
 //  Created by Jimmy on 03/09/2024.
 //
 import DataRepository
+import SwiftUI
 import UIKit
 
 class CharactersViewController: UIViewController {
@@ -12,6 +13,8 @@ class CharactersViewController: UIViewController {
     private let viewModel: CharactersViewModelProtocol
     private let tableView = UITableView()
     private let refreshControl = UIRefreshControl()
+    private var filterChangeTimer: Timer?
+    private var filterView: UIHostingController<FilterView>!
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Characters"
@@ -19,6 +22,13 @@ class CharactersViewController: UIViewController {
         label.textColor = .black
         label.textAlignment = .left
         return label
+    }()
+
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.color = .gray
+        indicator.hidesWhenStopped = true
+        return indicator
     }()
 
     init(viewModel: CharactersViewModelProtocol) {
@@ -36,17 +46,24 @@ class CharactersViewController: UIViewController {
         setupUI()
         configureTableView()
         configureRefreshControl()
+        setupActivityIndicator()
+        viewModel.delegate = self
         loadCharacters()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     private func setupUI() {
         view.backgroundColor = .white
-        navigationController?.setNavigationBarHidden(true, animated: false)
 
         view.addSubview(tableView)
+
         tableView.translatesAutoresizingMaskIntoConstraints = false
+
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
@@ -60,22 +77,55 @@ class CharactersViewController: UIViewController {
         tableView.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.reuseIdentifier)
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
+        tableView.separatorStyle = .none
         tableView.tableHeaderView = createHeaderView()
     }
 
-    private func createHeaderView() -> UIView {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 100))
-        headerView.backgroundColor = .white
+    private func setupActivityIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
 
+    private func createHeaderView() -> UIView {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 150))
+        headerView.backgroundColor = .white
+        
         headerView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 16),
             titleLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
-            titleLabel.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -16)
+            titleLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16)
         ])
-
+        
+        // Add filter view to the header
+        let swiftUIFilterView = FilterView(onFilterSelected: { [weak self] newFilter in
+            self?.viewModel.applyFilter(newFilter)
+            self?.loadCharacters()
+        })
+        
+        filterView = UIHostingController(rootView: swiftUIFilterView)
+        addChild(filterView)
+        headerView.addSubview(filterView.view)
+        filterView.didMove(toParent: self)
+        
+        filterView.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            filterView.view.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),
+            filterView.view.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            filterView.view.trailingAnchor.constraint(lessThanOrEqualTo: headerView.trailingAnchor, constant: -16),
+            filterView.view.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -16),
+            filterView.view.heightAnchor.constraint(equalToConstant: 44)
+        ])
+        
         return headerView
     }
+
 
     private func configureRefreshControl() {
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
@@ -84,21 +134,11 @@ class CharactersViewController: UIViewController {
 
     @objc private func refreshData() {
         viewModel.resetPagination()
-        loadCharacters()
+        viewModel.loadCharacters()
     }
 
     private func loadCharacters() {
-        viewModel.loadCharacters { [weak self] in
-            DispatchQueue.main.async {
-                self?.refreshControl.endRefreshing()
-                self?.tableView.reloadData()
-            }
-        } onError: { [weak self] error in
-            DispatchQueue.main.async {
-                self?.refreshControl.endRefreshing()
-                self?.showError(error)
-            }
-        }
+        viewModel.loadCharacters()
     }
 
     private func showError(_ error: Error) {
@@ -106,6 +146,21 @@ class CharactersViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
+
+    private func showLoadingIndicator() {
+        DispatchQueue.main.async { [weak self] in
+            self?.activityIndicator.startAnimating()
+            self?.view.isUserInteractionEnabled = false
+        }
+    }
+
+    private func hideLoadingIndicator() {
+        DispatchQueue.main.async { [weak self] in
+            self?.activityIndicator.stopAnimating()
+            self?.view.isUserInteractionEnabled = true
+        }
+    }
+
 }
 
 extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
@@ -136,6 +191,29 @@ extension CharactersViewController: UITableViewDataSourcePrefetching {
         let maxIndex = indexPaths.map { $0.row }.max() ?? 0
         if maxIndex >= viewModel.characters.count - 1 {
             loadCharacters()
+        }
+    }
+}
+
+extension CharactersViewController: CharactersViewModelDelegate {
+    func viewModelDidUpdateState(_ viewModel: CharactersViewModel, state: ViewState) {
+        DispatchQueue.main.async { [weak self] in
+            switch state {
+            case .idle:
+                self?.tableView.reloadData()
+            case .loading:
+                if viewModel.characters.isEmpty {
+                    self?.showLoadingIndicator()
+                }
+            case .loaded:
+                self?.hideLoadingIndicator()
+                self?.tableView.reloadData()
+                self?.refreshControl.endRefreshing()
+            case .error(let error):
+                self?.hideLoadingIndicator()
+                self?.showError(error)
+                self?.refreshControl.endRefreshing()
+            }
         }
     }
 }
