@@ -8,10 +8,10 @@
 import Foundation
 
 final class URLSessionNetworking: NetworkProtocol {
-    private let session: URLSession
+    private let session: URLSessionProtocol
     private let decoder: JSONDecoder
     
-    init(session: URLSession = .shared, decoder: JSONDecoder = JSONDecoder()) {
+    init(session: URLSessionProtocol = URLSession.shared, decoder: JSONDecoder = JSONDecoder()) {
         self.session = session
         self.decoder = decoder
     }

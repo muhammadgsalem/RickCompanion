@@ -41,7 +41,7 @@ final class CharacterRepository: CharacterRepositoryProtocol {
         case .unknownError(let underlyingError):
             return .unknown(underlyingError)
         @unknown default:
-            return .unknown(networkError)
+            return .invalidRequest
         }
     }
 }
