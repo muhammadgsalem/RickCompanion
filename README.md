@@ -1,4 +1,4 @@
-# Rick and Morty Character Viewer
+# RickCompanion
 
 ![Rick and Morty Banner](https://rickandmortyapi.com/api/character/avatar/1.jpeg)
 
