@@ -100,8 +100,8 @@
 		953108742C86811300CCD8DD /* APIGateTests */ = {
 			isa = PBXGroup;
 			children = (
+				953109E72C8B54C100CCD8DD /* Mocks */,
 				953108752C86811300CCD8DD /* APIGateTests.swift */,
-				953109D62C8B446700CCD8DD /* MockURLSessionProtocol.swift */,
 			);
 			path = APIGateTests;
 			sourceTree = "<group>";
@@ -139,6 +139,14 @@
 				953109752C8882C300CCD8DD /* APIGateDIContainer.swift */,
 			);
 			path = DependencyInjectionContainer;
+			sourceTree = "<group>";
+		};
+		953109E72C8B54C100CCD8DD /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				953109D62C8B446700CCD8DD /* MockURLSessionProtocol.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
