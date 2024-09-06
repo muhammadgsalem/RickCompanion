@@ -19,9 +19,7 @@ protocol CharactersViewModelProtocol: AnyObject {
     func applyFilter(_ filter: CharacterStatus?)
 }
 
-protocol CharactersViewModelDelegate: AnyObject {
-    func viewModelDidUpdateState(_ viewModel: CharactersViewModel, state: ViewState)
-}
+
 
 enum CharacterStatus: String, CaseIterable {
     case all = "All"
@@ -30,9 +28,22 @@ enum CharacterStatus: String, CaseIterable {
     case unknown = "Unknown"
 }
 
-enum ViewState {
+enum ViewState: Equatable {
     case idle
     case loading
     case loaded([Character])
     case error(Error)
+    
+    static func == (lhs: ViewState, rhs: ViewState) -> Bool {
+        switch (lhs, rhs) {
+        case (.idle, .idle), (.loading, .loading):
+            return true
+        case let (.loaded(lhsCharacters), .loaded(rhsCharacters)):
+            return lhsCharacters == rhsCharacters
+        case let (.error(lhsError), .error(rhsError)):
+            return lhsError.localizedDescription == rhsError.localizedDescription
+        default:
+            return false
+        }
+    }
 }
