@@ -20,7 +20,8 @@ class CharacterDetailCoordinator: Coordinator {
     }
     
     func start() {
-        let detailVC = DependencyContainer.shared.makeCharacterDetailsViewController(character: character, coordinator: self)
+        let imageLoadingService = DependencyContainer.shared.makeImageCache()
+        let detailVC = DependencyContainer.shared.makeCharacterDetailsViewController(character: character, coordinator: self, imageLoadingService: imageLoadingService)
         navigationController.pushViewController(detailVC, animated: true)
     }
     
@@ -30,5 +31,9 @@ class CharacterDetailCoordinator: Coordinator {
     
     func finish() {
         childCoordinators.removeAll()
+    }
+    
+    func pop() {
+        navigationController.popViewController(animated: true)
     }
 }

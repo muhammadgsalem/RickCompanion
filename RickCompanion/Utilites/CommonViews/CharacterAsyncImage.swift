@@ -6,24 +6,42 @@
 //
 
 import SwiftUI
+
 struct CharacterAsyncImage: View {
-    let url: URL?
+    let url: URL
+    @State private var image: UIImage?
+    let imageCache: ImageCacheService
+    
+    init(url: URL, imageCache: ImageCacheService = DependencyContainer.shared.makeImageCache()) {
+        self.url = url
+        self.imageCache = imageCache
+    }
     
     var body: some View {
-        AsyncImage(url: url) { phase in
-            switch phase {
-            case .empty:
-                ProgressView()
-            case .success(let image):
-                image
+        Group {
+            if let image = image {
+                Image(uiImage: image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-            case .failure:
-                Image(systemName: "photo")
-                    .foregroundColor(.gray)
-            @unknown default:
-                Color.gray
+            } else {
+                ProgressView()
             }
+        }
+        .onAppear(perform: loadImage)
+    }
+    
+    private func loadImage() {
+        if let cachedImage = imageCache.image(for: url) {
+            self.image = cachedImage
+        } else {
+            URLSession.shared.dataTask(with: url) { data, _, _ in
+                if let data = data, let downloadedImage = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.image = downloadedImage
+                        self.imageCache.cache(downloadedImage, for: url)
+                    }
+                }
+            }.resume()
         }
     }
 }

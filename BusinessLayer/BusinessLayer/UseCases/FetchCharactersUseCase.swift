@@ -15,15 +15,11 @@ final class FetchCharactersUseCase: FetchCharactersUseCaseProtocol {
         self.characterRepository = characterRepository
     }
 
-    func execute(page: Int, status: String, completion: @escaping (Result<CharacterResponse, BusinessError>) -> Void) {
-        characterRepository.fetchCharacters(page: page, status: status) { result in
-            switch result {
-            case .success(let response):
-                completion(.success(response))
-            case .failure(let error):
-                let businessError = self.mapError(error)
-                completion(.failure(businessError))
-            }
+    func execute(page: Int, status: String) async throws -> CharacterResponse {
+        do {
+            return try await characterRepository.fetchCharacters(page: page, status: status)
+        } catch {
+            throw self.mapError(error)
         }
     }
     

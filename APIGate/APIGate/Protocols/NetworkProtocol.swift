@@ -8,6 +8,6 @@
 import Foundation
 
 public protocol NetworkProtocol {
-    func request<T: Decodable>(_ endpoint: Endpoint, completion: @escaping (Result<T, NetworkError>) -> Void)
+    func request<T: Decodable>(_ endpoint: Endpoint) async throws -> T
 }
 

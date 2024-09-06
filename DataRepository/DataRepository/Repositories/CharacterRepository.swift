@@ -15,21 +15,21 @@ final class CharacterRepository: CharacterRepositoryProtocol {
         self.networking = networking
     }
 
-    func fetchCharacters(page: Int, status: String, completion: @escaping (Result<CharacterResponse, RepositoryError>) -> Void) {
+    func fetchCharacters(page: Int, status: String) async throws -> CharacterResponse {
         let endpoint = CharactersEndpoint(page: page, status: status)
-        networking.request(endpoint) { (result: Result<CharacterResponse, NetworkError>) in
-            switch result {
-            case .success(let response):
-                completion(.success(response))
-            case .failure(let networkError):
-                let repositoryError = self.mapNetworkError(networkError)
-                completion(.failure(repositoryError))
-            }
+        do {
+            return try await networking.request(endpoint)
+        } catch {
+            throw self.mapNetworkError(error)
         }
     }
     
-    private func mapNetworkError(_ error: NetworkError) -> RepositoryError {
-        switch error {
+    private func mapNetworkError(_ error: Error) -> RepositoryError {
+        guard let networkError = error as? NetworkError else {
+            return .unknown(error)
+        }
+        
+        switch networkError {
         case .invalidURL:
             return .invalidRequest
         case .invalidResponse, .decodingError:
@@ -41,7 +41,7 @@ final class CharacterRepository: CharacterRepositoryProtocol {
         case .unknownError(let underlyingError):
             return .unknown(underlyingError)
         @unknown default:
-            return .noData
+            return .unknown(networkError)
         }
     }
 }
