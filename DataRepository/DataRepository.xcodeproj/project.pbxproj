@@ -19,6 +19,7 @@
 		953109642C8875C500CCD8DD /* APIGate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 953109622C8875C500CCD8DD /* APIGate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9531097B2C88854C00CCD8DD /* DataRepositoryDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531097A2C88854C00CCD8DD /* DataRepositoryDIContainer.swift */; };
 		9531097E2C88863400CCD8DD /* RepositoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9531097D2C88863400CCD8DD /* RepositoryError.swift */; };
+		953109D92C8B480200CCD8DD /* MockNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109D82C8B480200CCD8DD /* MockNetworking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		953109622C8875C500CCD8DD /* APIGate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9531097A2C88854C00CCD8DD /* DataRepositoryDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepositoryDIContainer.swift; sourceTree = "<group>"; };
 		9531097D2C88863400CCD8DD /* RepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryError.swift; sourceTree = "<group>"; };
+		953109D82C8B480200CCD8DD /* MockNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				953108E02C87691300CCD8DD /* DataRepositoryTests.swift */,
+				953109D82C8B480200CCD8DD /* MockNetworking.swift */,
 			);
 			path = DataRepositoryTests;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				953108E12C87691300CCD8DD /* DataRepositoryTests.swift in Sources */,
+				953109D92C8B480200CCD8DD /* MockNetworking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

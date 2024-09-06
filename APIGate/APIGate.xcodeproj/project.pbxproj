@@ -17,6 +17,8 @@
 		9531091C2C8786C500CCD8DD /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953108822C86818D00CCD8DD /* Endpoint.swift */; };
 		953109762C8882C300CCD8DD /* APIGateDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109752C8882C300CCD8DD /* APIGateDIContainer.swift */; };
 		953109782C88843C00CCD8DD /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109772C88843C00CCD8DD /* NetworkError.swift */; };
+		953109D52C8B426A00CCD8DD /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109D42C8B426A00CCD8DD /* URLSessionProtocol.swift */; };
+		953109D72C8B446700CCD8DD /* MockURLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109D62C8B446700CCD8DD /* MockURLSessionProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 		953109102C876A6800CCD8DD /* NetworkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProtocol.swift; sourceTree = "<group>"; };
 		953109752C8882C300CCD8DD /* APIGateDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIGateDIContainer.swift; sourceTree = "<group>"; };
 		953109772C88843C00CCD8DD /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		953109D42C8B426A00CCD8DD /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		953109D62C8B446700CCD8DD /* MockURLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				953108752C86811300CCD8DD /* APIGateTests.swift */,
+				953109D62C8B446700CCD8DD /* MockURLSessionProtocol.swift */,
 			);
 			path = APIGateTests;
 			sourceTree = "<group>";
@@ -106,6 +111,7 @@
 			children = (
 				953109102C876A6800CCD8DD /* NetworkProtocol.swift */,
 				953108822C86818D00CCD8DD /* Endpoint.swift */,
+				953109D42C8B426A00CCD8DD /* URLSessionProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -248,6 +254,7 @@
 				953109782C88843C00CCD8DD /* NetworkError.swift in Sources */,
 				953109122C876A6A00CCD8DD /* NetworkProtocol.swift in Sources */,
 				953109762C8882C300CCD8DD /* APIGateDIContainer.swift in Sources */,
+				953109D52C8B426A00CCD8DD /* URLSessionProtocol.swift in Sources */,
 				9531086B2C86811300CCD8DD /* APIGate.docc in Sources */,
 				9531091C2C8786C500CCD8DD /* Endpoint.swift in Sources */,
 				953108A12C868B7400CCD8DD /* URLExtension.swift in Sources */,
@@ -258,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				953109D72C8B446700CCD8DD /* MockURLSessionProtocol.swift in Sources */,
 				953108762C86811300CCD8DD /* APIGateTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

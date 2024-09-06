@@ -30,7 +30,9 @@ struct FilterView: View {
                     }
                 )
             }
+            Spacer()
         }
+        .padding(.leading, 2)
     }
 }
 
