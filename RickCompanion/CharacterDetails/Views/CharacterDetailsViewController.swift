@@ -5,17 +5,19 @@
 //  Created by Jimmy on 04/09/2024.
 //
 
-import UIKit
-import SwiftUI
 import DataRepository
+import SwiftUI
+import UIKit
 
 class CharacterDetailsViewController: UIViewController {
     weak var coordinator: CharacterDetailCoordinator?
     private let character: Character
-    
-    init(character: Character, coordinator: CharacterDetailCoordinator) {
+    private let imageLoadingService: ImageCacheService
+
+    init(character: Character, coordinator: CharacterDetailCoordinator, imageLoadingService: ImageCacheService) {
         self.character = character
         self.coordinator = coordinator
+        self.imageLoadingService = imageLoadingService
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -41,8 +43,9 @@ class CharacterDetailsViewController: UIViewController {
     }
     
     private func setupSwiftUIView() {
-        let characterDetailsView = CharacterDetailsView(character: character) {
-            self.navigationController?.popViewController(animated: true)
+        let characterDetailsView = DependencyContainer.shared.makeCharacterDetailsView(character: character, imageLoadingService: imageLoadingService) { [weak self] in
+            guard let self = self else { return }
+            self.coordinator?.pop()
         }
         
         let hostingController = UIHostingController(rootView: characterDetailsView)

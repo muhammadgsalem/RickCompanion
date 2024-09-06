@@ -11,7 +11,6 @@ import DataRepository
 import Foundation
 
 final class DependencyContainer: DependencyContainerProtocol {
-    
     static let shared = DependencyContainer()
     
     private let apiGateDIContainer: APIGateDIContainer
@@ -32,14 +31,34 @@ final class DependencyContainer: DependencyContainerProtocol {
         CharactersViewModel(fetchCharactersUseCase: businessLayerDIContainer.makeFetchCharactersUseCase())
     }
     
-    @MainActor func makeCharactersViewController(coordinator: CharactersCoordinator) -> CharactersViewController {
+    @MainActor func makeCharactersViewController(coordinator: CharactersCoordinator, imageLoadingService: ImageCacheService) -> CharactersViewController {
         let viewModel = makeCharactersViewModel()
-        let viewController = CharactersViewController(viewModel: viewModel)
+        let viewController = CharactersViewController(viewModel: viewModel, imageLoadingService: imageLoadingService)
         viewController.coordinator = coordinator
         return viewController
     }
     
-    func makeCharacterDetailsViewController(character: Character, coordinator: CharacterDetailCoordinator) -> CharacterDetailsViewController {
-        CharacterDetailsViewController(character: character, coordinator: coordinator)
+    func makeCharacterCellView(character: Character?, imageLoadingService: ImageCacheService?) -> CharacterCellView {
+        CharacterCellView(character: character, imageLoadingService: imageLoadingService)
+    }
+    
+    func makeCharacterDetailsViewController(character: Character, coordinator: CharacterDetailCoordinator, imageLoadingService: ImageCacheService) -> CharacterDetailsViewController {
+        CharacterDetailsViewController(character: character, coordinator: coordinator,imageLoadingService: imageLoadingService)
+    }
+    
+    func makeCharacterDetailsView(character: Character, imageLoadingService: ImageCacheService, onBackActionSelected: @escaping () -> Void) -> CharacterDetailsView {
+        CharacterDetailsView(character: character, onBackActionSelected: onBackActionSelected, imageLoadingService: imageLoadingService)
+    }
+    
+    func makeImageCache() -> ImageCacheService {
+        ImageCache(memoryCache: makeMemoryCache(), diskCache: makeDiskCache())
+    }
+    
+    func makeMemoryCache() -> MemoryCacheService {
+        MemoryCache()
+    }
+    
+    func makeDiskCache() -> DiskCacheService {
+        DiskCache()
     }
 }

@@ -15,6 +15,7 @@ class CharactersViewController: UIViewController {
     private let refreshControl = UIRefreshControl()
     private var filterChangeTimer: Timer?
     private var filterView: UIHostingController<FilterView>!
+    private let imageLoadingService: ImageCacheService
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Characters"
@@ -31,8 +32,9 @@ class CharactersViewController: UIViewController {
         return indicator
     }()
 
-    init(viewModel: CharactersViewModelProtocol) {
+    init(viewModel: CharactersViewModelProtocol, imageLoadingService: ImageCacheService) {
         self.viewModel = viewModel
+        self.imageLoadingService = imageLoadingService
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -183,10 +185,10 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CharacterTableViewCell.reuseIdentifier, for: indexPath) as? CharacterTableViewCell else {
             return UITableViewCell()
         }
-
+        
         let character = viewModel.characters[indexPath.row]
-        cell.configure(with: character)
-        viewModel.loadMoreCharactersIfNeeded(for: indexPath.row)
+        cell.configure(with: character, imageLoadingService: imageLoadingService)
+        
         return cell
     }
 

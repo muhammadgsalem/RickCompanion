@@ -39,6 +39,12 @@
 		953109A72C8A0A3D00CCD8DD /* StatusPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109A62C8A0A3D00CCD8DD /* StatusPill.swift */; };
 		953109B02C8A23CF00CCD8DD /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109AF2C8A23CF00CCD8DD /* FilterButton.swift */; };
 		953109B22C8A295900CCD8DD /* CharactersViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109B12C8A295900CCD8DD /* CharactersViewModelProtocol.swift */; };
+		953109C02C8A367F00CCD8DD /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109BF2C8A367F00CCD8DD /* ImageCache.swift */; };
+		953109C62C8B212500CCD8DD /* ImageCacheServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109C52C8B212500CCD8DD /* ImageCacheServiceProtocol.swift */; };
+		953109C92C8B215100CCD8DD /* MemoryCacheServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109C82C8B215100CCD8DD /* MemoryCacheServiceProtocol.swift */; };
+		953109CB2C8B216900CCD8DD /* DiskCacheServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109CA2C8B216900CCD8DD /* DiskCacheServiceProtocol.swift */; };
+		953109CD2C8B21B700CCD8DD /* MemoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109CC2C8B21B700CCD8DD /* MemoryCache.swift */; };
+		953109CF2C8B21D800CCD8DD /* DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109CE2C8B21D800CCD8DD /* DiskCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +122,12 @@
 		953109A62C8A0A3D00CCD8DD /* StatusPill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusPill.swift; sourceTree = "<group>"; };
 		953109AF2C8A23CF00CCD8DD /* FilterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 		953109B12C8A295900CCD8DD /* CharactersViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModelProtocol.swift; sourceTree = "<group>"; };
+		953109BF2C8A367F00CCD8DD /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		953109C52C8B212500CCD8DD /* ImageCacheServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheServiceProtocol.swift; sourceTree = "<group>"; };
+		953109C82C8B215100CCD8DD /* MemoryCacheServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCacheServiceProtocol.swift; sourceTree = "<group>"; };
+		953109CA2C8B216900CCD8DD /* DiskCacheServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskCacheServiceProtocol.swift; sourceTree = "<group>"; };
+		953109CC2C8B21B700CCD8DD /* MemoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCache.swift; sourceTree = "<group>"; };
+		953109CE2C8B21D800CCD8DD /* DiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +348,7 @@
 		9531095F2C87D9E600CCD8DD /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
+				953109BE2C8A366D00CCD8DD /* ImageLoadingService */,
 				953109A32C8A0A1400CCD8DD /* CommonViews */,
 				9531098D2C88D6D600CCD8DD /* ColorExtension.swift */,
 			);
@@ -375,6 +388,27 @@
 				953109A62C8A0A3D00CCD8DD /* StatusPill.swift */,
 			);
 			path = CommonViews;
+			sourceTree = "<group>";
+		};
+		953109BE2C8A366D00CCD8DD /* ImageLoadingService */ = {
+			isa = PBXGroup;
+			children = (
+				953109C72C8B213D00CCD8DD /* Protocols */,
+				953109BF2C8A367F00CCD8DD /* ImageCache.swift */,
+				953109CC2C8B21B700CCD8DD /* MemoryCache.swift */,
+				953109CE2C8B21D800CCD8DD /* DiskCache.swift */,
+			);
+			path = ImageLoadingService;
+			sourceTree = "<group>";
+		};
+		953109C72C8B213D00CCD8DD /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				953109C52C8B212500CCD8DD /* ImageCacheServiceProtocol.swift */,
+				953109C82C8B215100CCD8DD /* MemoryCacheServiceProtocol.swift */,
+				953109CA2C8B216900CCD8DD /* DiskCacheServiceProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -515,14 +549,19 @@
 				953109A22C89F6FB00CCD8DD /* CharacterImageView.swift in Sources */,
 				953109872C88A09D00CCD8DD /* CharacterDetailCoordinator.swift in Sources */,
 				953108BB2C86A96900CCD8DD /* CharactersViewController.swift in Sources */,
+				953109CD2C8B21B700CCD8DD /* MemoryCache.swift in Sources */,
 				953108C02C87117100CCD8DD /* CharacterCellView.swift in Sources */,
+				953109CF2C8B21D800CCD8DD /* DiskCache.swift in Sources */,
+				953109C02C8A367F00CCD8DD /* ImageCache.swift in Sources */,
 				953109972C89BE4700CCD8DD /* CharacterDetailsView.swift in Sources */,
 				953108B82C869A3F00CCD8DD /* SceneDelegate.swift in Sources */,
 				953108C62C87345A00CCD8DD /* CharactersTableViewCell.swift in Sources */,
 				953109B02C8A23CF00CCD8DD /* FilterButton.swift in Sources */,
 				953109582C87D37500CCD8DD /* CharacterDetailsViewController.swift in Sources */,
 				953108B32C86963C00CCD8DD /* AppCoordinator.swift in Sources */,
+				953109CB2C8B216900CCD8DD /* DiskCacheServiceProtocol.swift in Sources */,
 				9531095C2C87D59200CCD8DD /* CharactersCoordinator.swift in Sources */,
+				953109C62C8B212500CCD8DD /* ImageCacheServiceProtocol.swift in Sources */,
 				953107AA2C863C6100CCD8DD /* AppDelegate.swift in Sources */,
 				9531098E2C88D6D600CCD8DD /* ColorExtension.swift in Sources */,
 				953109462C87C78D00CCD8DD /* DependencyContainerProtocol.swift in Sources */,
@@ -532,6 +571,7 @@
 				953109B22C8A295900CCD8DD /* CharactersViewModelProtocol.swift in Sources */,
 				9531098A2C88C12600CCD8DD /* FilterView.swift in Sources */,
 				953109A72C8A0A3D00CCD8DD /* StatusPill.swift in Sources */,
+				953109C92C8B215100CCD8DD /* MemoryCacheServiceProtocol.swift in Sources */,
 				953108AC2C86956900CCD8DD /* CharactersViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

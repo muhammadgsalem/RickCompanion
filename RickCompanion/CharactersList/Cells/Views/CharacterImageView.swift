@@ -6,27 +6,19 @@
 //
 
 import SwiftUI
+
 struct CharacterImageView: View {
     let imageURL: URL
-    
+    let imageLoadingService: ImageCacheService
     var body: some View {
-        AsyncImage(url: imageURL) { phase in
-            switch phase {
-            case .empty:
-                ProgressView()
-            case .success(let image):
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            case .failure:
-                Image(systemName: "photo")
-                    .foregroundColor(.gray)
-                    .frame(width: 80, height: 80)
-            @unknown default:
-                Color.gray
-            }
-        }
-        .frame(width: 80, height: 80)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
+        CharacterAsyncImage(url: imageURL, imageCache: imageLoadingService)
+            .frame(width: 80, height: 80)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+    }
+}
+
+struct CharacterImageView_Previews: PreviewProvider {
+    static var previews: some View {
+        CharacterImageView(imageURL: URL(string: "https://example.com/image.jpg")!, imageLoadingService: DependencyContainer.shared.makeImageCache())
     }
 }

@@ -19,7 +19,8 @@ class CharactersCoordinator: Coordinator {
     }
     
     @MainActor func start() {
-        let charactersVC = DependencyContainer.shared.makeCharactersViewController(coordinator: self)
+        let imageLoadingService = DependencyContainer.shared.makeImageCache()
+        let charactersVC = DependencyContainer.shared.makeCharactersViewController(coordinator: self, imageLoadingService: imageLoadingService)
         navigationController.pushViewController(charactersVC, animated: false)
     }
     

@@ -10,13 +10,17 @@ import SwiftUI
 
 struct CharacterCellView: View {
     let character: Character?
+    let imageLoadingService: ImageCacheService?
     
     var body: some View {
         HStack(alignment: .top, spacing: 10) {
-            if let url = character?.image {
-                CharacterImageView(imageURL: url)
+            if let character = character, let imageLoadingService = imageLoadingService {
+                CharacterImageView(imageURL: character.image, imageLoadingService: imageLoadingService)
+            } else {
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(Color.gray.opacity(0.3))
+                    .frame(width: 80, height: 80)
             }
-            
             
             VStack(alignment: .leading, spacing: 4) {
                 if let name = character?.name {
@@ -30,7 +34,6 @@ struct CharacterCellView: View {
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                 }
-
             }
             
             Spacer()
@@ -42,6 +45,7 @@ struct CharacterCellView: View {
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .padding(.horizontal)
         .padding(.vertical, 4)
+        .id(character?.id)
     }
     
     @ViewBuilder
@@ -70,7 +74,7 @@ struct CharacterCellView: View {
 
 struct CharacterCellView_Preview: PreviewProvider {
     static var previews: some View {
-        CharacterCellView(character: .mockCharacter)
+        CharacterCellView(character: .mockCharacter, imageLoadingService: nil)
             .previewLayout(.sizeThatFits)
             .padding()
             .previewDisplayName("Character Cell")

@@ -24,7 +24,7 @@ class CharacterTableViewCell: UITableViewCell {
     }
     
     private func setupHostingController() {
-        hostingController = UIHostingController(rootView: CharacterCellView(character: nil))
+        hostingController = UIHostingController(rootView: DependencyContainer.shared.makeCharacterCellView(character: nil, imageLoadingService: nil))
         hostingController?.view.backgroundColor = .clear
         
         guard let hostingView = hostingController?.view else { return }
@@ -39,12 +39,8 @@ class CharacterTableViewCell: UITableViewCell {
         ])
     }
     
-    func configure(with character: Character) {
-        hostingController?.rootView = CharacterCellView(character: character)
+    func configure(with character: Character, imageLoadingService: ImageCacheService) {
+        hostingController?.rootView = DependencyContainer.shared.makeCharacterCellView(character: character, imageLoadingService: imageLoadingService)
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        hostingController?.rootView = CharacterCellView(character: nil)
-    }
 }

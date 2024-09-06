@@ -11,6 +11,7 @@ import SwiftUI
 struct CharacterDetailsView: View {
     let character: Character
     let onBackActionSelected: () -> Void
+    let imageLoadingService: ImageCacheService
 
     var body: some View {
         ScrollView {
@@ -25,7 +26,7 @@ struct CharacterDetailsView: View {
     
     private var characterImageView: some View {
         ZStack(alignment: .topLeading) {
-            CharacterAsyncImage(url: character.image)
+            CharacterAsyncImage(url: character.image, imageCache: imageLoadingService)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
                 .padding(.bottom, 10)
 
@@ -107,5 +108,5 @@ struct CharacterDetailsView: View {
 
 
 #Preview {
-    CharacterDetailsView(character: .mockCharacter, onBackActionSelected: {})
+    CharacterDetailsView(character: .mockCharacter, onBackActionSelected: {}, imageLoadingService: DependencyContainer.shared.makeImageCache())
 }
