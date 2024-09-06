@@ -54,11 +54,8 @@
 		953108E02C87691300CCD8DD /* DataRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepositoryTests.swift; sourceTree = "<group>"; };
 		953108ED2C87695200CCD8DD /* CharacterRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterRepository.swift; sourceTree = "<group>"; };
 		953108F12C87698300CCD8DD /* CharacterRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRepositoryProtocol.swift; sourceTree = "<group>"; };
-		953109142C876A8400CCD8DD /* APIGateProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGateProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		953109192C8786B300CCD8DD /* CharactersEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharactersEndpoint.swift; sourceTree = "<group>"; };
 		9531091F2C8787A300CCD8DD /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
-		9531094A2C87C8EF00CCD8DD /* APIGateProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGateProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9531094E2C87C9CF00CCD8DD /* APIGateProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGateProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		953109622C8875C500CCD8DD /* APIGate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9531097A2C88854C00CCD8DD /* DataRepositoryDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRepositoryDIContainer.swift; sourceTree = "<group>"; };
 		9531097D2C88863400CCD8DD /* RepositoryError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryError.swift; sourceTree = "<group>"; };
@@ -107,11 +104,9 @@
 		953108D32C87691300CCD8DD /* DataRepository */ = {
 			isa = PBXGroup;
 			children = (
-				953109792C88854600CCD8DD /* DependencyInjectionContainer */,
-				953109532C87CB8900CCD8DD /* RepositoryProtocols */,
-				9531091E2C87879900CCD8DD /* Models */,
-				953109182C8786A000CCD8DD /* EndPoints */,
 				953108EB2C87694600CCD8DD /* Repositories */,
+				953109792C88854600CCD8DD /* DependencyInjectionContainer */,
+				9531091E2C87879900CCD8DD /* DTOs */,
 				9531097C2C88862700CCD8DD /* Utilites */,
 				953108D42C87691300CCD8DD /* DataRepository.h */,
 				953108D52C87691300CCD8DD /* DataRepository.docc */,
@@ -122,8 +117,8 @@
 		953108DF2C87691300CCD8DD /* DataRepositoryTests */ = {
 			isa = PBXGroup;
 			children = (
+				953109E82C8B54CA00CCD8DD /* Mocks */,
 				953108E02C87691300CCD8DD /* DataRepositoryTests.swift */,
-				953109D82C8B480200CCD8DD /* MockNetworking.swift */,
 			);
 			path = DataRepositoryTests;
 			sourceTree = "<group>";
@@ -131,7 +126,7 @@
 		953108EB2C87694600CCD8DD /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				953108ED2C87695200CCD8DD /* CharacterRepository.swift */,
+				953109EF2C8B581500CCD8DD /* CharacterRepository */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -140,9 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				953109622C8875C500CCD8DD /* APIGate.framework */,
-				9531094E2C87C9CF00CCD8DD /* APIGateProtocol.framework */,
-				9531094A2C87C8EF00CCD8DD /* APIGateProtocol.framework */,
-				953109142C876A8400CCD8DD /* APIGateProtocol.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -155,12 +147,12 @@
 			path = EndPoints;
 			sourceTree = "<group>";
 		};
-		9531091E2C87879900CCD8DD /* Models */ = {
+		9531091E2C87879900CCD8DD /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
 				9531091F2C8787A300CCD8DD /* Character.swift */,
 			);
-			path = Models;
+			path = DTOs;
 			sourceTree = "<group>";
 		};
 		953109532C87CB8900CCD8DD /* RepositoryProtocols */ = {
@@ -185,6 +177,24 @@
 				9531097D2C88863400CCD8DD /* RepositoryError.swift */,
 			);
 			path = Utilites;
+			sourceTree = "<group>";
+		};
+		953109E82C8B54CA00CCD8DD /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				953109D82C8B480200CCD8DD /* MockNetworking.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		953109EF2C8B581500CCD8DD /* CharacterRepository */ = {
+			isa = PBXGroup;
+			children = (
+				953109182C8786A000CCD8DD /* EndPoints */,
+				953109532C87CB8900CCD8DD /* RepositoryProtocols */,
+				953108ED2C87695200CCD8DD /* CharacterRepository.swift */,
+			);
+			path = CharacterRepository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
