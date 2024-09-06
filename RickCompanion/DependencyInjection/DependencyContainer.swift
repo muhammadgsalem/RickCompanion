@@ -33,9 +33,15 @@ final class DependencyContainer: DependencyContainerProtocol {
     
     @MainActor func makeCharactersViewController(coordinator: CharactersCoordinator, imageLoadingService: ImageCacheService) -> CharactersViewController {
         let viewModel = makeCharactersViewModel()
-        let viewController = CharactersViewController(viewModel: viewModel, imageLoadingService: imageLoadingService)
-        viewController.coordinator = coordinator
-        return viewController
+        let filterViewWrapper = makeFilterViewWrapper()
+        return CharactersViewController(coordinator: coordinator,
+                                        viewModel: viewModel,
+                                        imageLoadingService: imageLoadingService,
+                                        filterViewWrapper: filterViewWrapper)
+    }
+    
+    func makeFilterViewWrapper() -> FilterViewWrapper {
+        FilterViewWrapper()
     }
     
     func makeCharacterCellView(character: Character?, imageLoadingService: ImageCacheService?) -> CharacterCellView {
@@ -43,11 +49,16 @@ final class DependencyContainer: DependencyContainerProtocol {
     }
     
     func makeCharacterDetailsViewController(character: Character, coordinator: CharacterDetailCoordinator, imageLoadingService: ImageCacheService) -> CharacterDetailsViewController {
-        CharacterDetailsViewController(character: character, coordinator: coordinator,imageLoadingService: imageLoadingService)
+        let imageLoadingService = makeImageCache()
+        return CharacterDetailsViewController(character: character,
+                                              coordinator: coordinator,
+                                              imageLoadingService: imageLoadingService)
     }
     
     func makeCharacterDetailsView(character: Character, imageLoadingService: ImageCacheService, onBackActionSelected: @escaping () -> Void) -> CharacterDetailsView {
-        CharacterDetailsView(character: character, onBackActionSelected: onBackActionSelected, imageLoadingService: imageLoadingService)
+        CharacterDetailsView(character: character,
+                             onBackActionSelected: onBackActionSelected,
+                             imageLoadingService: imageLoadingService)
     }
     
     func makeImageCache() -> ImageCacheService {
