@@ -7,15 +7,14 @@
 2. [Architecture](#architecture)
 3. [Modules](#modules)
 4. [Key Features](#key-features)
-5. [Getting Started](#getting-started)
-6. [Development](#development)
-7. [Testing](#testing)
-8. [Dependency Management](#dependency-management)
-9. [Coding Standards](#coding-standards)
+5. [Assumptions and Challenges](#assumptions-and-challenges)
+6. [Getting Started](#getting-started)
+7. [Development](#development)
+8. [Testing](#testing)
+9. [Dependency Management](#dependency-management)
 10. [Performance Considerations](#performance-considerations)
 11. [Future Improvements](#future-improvements)
-12. [Contributing](#contributing)
-13. [License](#license)
+
 
 ## Project Overview
 
@@ -78,6 +77,22 @@ The project follows Clean Architecture principles, utilizing the MVVM-C (Model-V
 - Asynchronous image loading with caching
 - Dark mode support
 
+## Assumptions and Challenges
+
+### Assumptions
+- The project assumes that most views should be implemented in SwiftUI, with the exception of the main character list, which uses a UITableView for performance reasons.
+- The app is designed to work with iOS 16.0 and above, taking advantage of the latest SwiftUI features and improvements.
+
+### Challenges
+- **Image Loading in TableView Cells**: We encountered a challenge with image loading in the character list. When scrolling quickly, images were sometimes loaded into the wrong cells. This was resolved by adding a unique identifier to each SwiftUI CharacterCellView, as SwiftUI doesn't inherently know it's being used within a UITableViewCell.
+
+### Architectural Decisions
+- **Interface-Driven Communication**: All modules in the app communicate with each other through interfaces (protocols). This design decision enhances the app's scalability, testability, and allows for easier future modifications. It also enables mock implementations for testing and the potential for alternative implementations without affecting the rest of the system.
+
+- **Dependency Injection**: We use dependency injection containers in each module to manage the creation and lifetime of objects. This approach improves testability and allows for easier swapping of implementations.
+
+- **MVVM-C with Clean Architecture**: The app follows MVVM-C (Model-View-ViewModel-Coordinator) pattern within a Clean Architecture structure. This separation of concerns allows for better testability and maintainability.
+
 ## Getting Started
 
 ### Prerequisites
@@ -111,7 +126,7 @@ RickCompanion/
 ├── RickCompanion/
 │   ├── Presentation/
 │   │   ├── Scenes/
-|   |   ├── Common/
+│   │   ├── Common/
 │   │   └── Coordinator/
 │   └── App/
 └── Common/
@@ -127,6 +142,12 @@ RickCompanion/
 5. Update coordinators if the feature requires navigation changes.
 6. Update Dependency Injection Containers to create new instance.
 7. Add appropriate unit tests for all new components.
+
+### Best Practices
+- Use protocols for inter-module communication to maintain loose coupling.
+- Implement dependency injection for better testability and flexibility.
+- Keep UI components as dumb as possible, with business logic residing in ViewModels and Use Cases.
+- Use Coordinators for navigation logic to keep ViewControllers and SwiftUI Views focused on their primary responsibilities.
 
 ## Testing
 
@@ -144,7 +165,6 @@ The project uses Swift Package Manager for dependency management. To add a new d
 1. In Xcode, go to File > Swift Packages > Add Package Dependency
 2. Enter the repository URL and follow the prompts
 
-
 ## Performance Considerations
 
 - Implement efficient image caching to reduce network requests
@@ -161,21 +181,6 @@ The project uses Swift Package Manager for dependency management. To add a new d
 - Add localization for multiple languages
 - Enhance accessibility features
 
-## Contributing
-
-We welcome contributions! Please follow these steps:
-
-1. Fork the repository
-2. Create your feature branch: `git checkout -b feature/AmazingFeature`
-3. Commit your changes: `git commit -m 'Add some AmazingFeature'`
-4. Push to the branch: `git push origin feature/AmazingFeature`
-5. Open a Pull Request
-
-Please ensure your code adheres to our coding standards and includes appropriate tests.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ---
 
