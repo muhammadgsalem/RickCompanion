@@ -52,9 +52,7 @@
 		9531084D2C86809F00CCD8DD /* BusinessLayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLayerTests.swift; sourceTree = "<group>"; };
 		9531088C2C8681A500CCD8DD /* APIGate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		953108942C8687CA00CCD8DD /* FetchCharactersUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCharactersUseCase.swift; sourceTree = "<group>"; };
-		953109012C876A0900CCD8DD /* DataRepositoryProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DataRepositoryProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9531092E2C87891F00CCD8DD /* FetchCharactersUseCaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCharactersUseCaseProtocol.swift; sourceTree = "<group>"; };
-		9531093A2C878FF900CCD8DD /* DataRepositoryProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DataRepositoryProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		953109662C8875F100CCD8DD /* DataRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DataRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		953109802C88896E00CCD8DD /* BusinessError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessError.swift; sourceTree = "<group>"; };
 		953109832C8889DC00CCD8DD /* BusinessLayerDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLayerDIContainer.swift; sourceTree = "<group>"; };
@@ -115,8 +113,8 @@
 		9531084C2C86809F00CCD8DD /* BusinessLayerTests */ = {
 			isa = PBXGroup;
 			children = (
+				953109E92C8B54D400CCD8DD /* Mocks */,
 				9531084D2C86809F00CCD8DD /* BusinessLayerTests.swift */,
-				953109DA2C8B492B00CCD8DD /* MockCharacterRepository.swift */,
 			);
 			path = BusinessLayerTests;
 			sourceTree = "<group>";
@@ -125,8 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				953109662C8875F100CCD8DD /* DataRepository.framework */,
-				9531093A2C878FF900CCD8DD /* DataRepositoryProtocol.framework */,
-				953109012C876A0900CCD8DD /* DataRepositoryProtocol.framework */,
 				9531088C2C8681A500CCD8DD /* APIGate.framework */,
 			);
 			name = Frameworks;
@@ -155,6 +151,14 @@
 				953109832C8889DC00CCD8DD /* BusinessLayerDIContainer.swift */,
 			);
 			path = DependencyInjectionContainer;
+			sourceTree = "<group>";
+		};
+		953109E92C8B54D400CCD8DD /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				953109DA2C8B492B00CCD8DD /* MockCharacterRepository.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

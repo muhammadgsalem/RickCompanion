@@ -109,11 +109,7 @@
 		953108B92C86A96900CCD8DD /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		953108BF2C87117100CCD8DD /* CharacterCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellView.swift; sourceTree = "<group>"; };
 		953108C52C87345900CCD8DD /* CharactersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewCell.swift; sourceTree = "<group>"; };
-		953109312C87895500CCD8DD /* BusinessLayerProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = BusinessLayerProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		953109342C8789BA00CCD8DD /* DataRepositoryProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DataRepositoryProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		953109372C878A4300CCD8DD /* APIGateProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGateProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9531093E2C8791C600CCD8DD /* APIGate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		953109412C87926300CCD8DD /* APIGateProtocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = APIGateProtocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		953109452C87C78D00CCD8DD /* DependencyContainerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainerProtocol.swift; sourceTree = "<group>"; };
 		953109562C87D37500CCD8DD /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
 		9531095B2C87D59200CCD8DD /* CharactersCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersCoordinator.swift; sourceTree = "<group>"; };
@@ -196,12 +192,11 @@
 		953107A82C863C6100CCD8DD /* RickCompanion */ = {
 			isa = PBXGroup;
 			children = (
+				953109EA2C8B56A800CCD8DD /* Presentation */,
 				953108AD2C8695E800CCD8DD /* App */,
 				953108AE2C8695F900CCD8DD /* Coordinator */,
 				953108A22C86941000CCD8DD /* DependencyInjection */,
-				953108A72C86951000CCD8DD /* CharactersList */,
-				953109552C87D30800CCD8DD /* CharacterDetails */,
-				9531095F2C87D9E600CCD8DD /* Utilites */,
+				953109A32C8A0A1400CCD8DD /* Common */,
 				953108A52C86945100CCD8DD /* Resources */,
 				953108A62C86949000CCD8DD /* SupportingFiles */,
 			);
@@ -233,11 +228,7 @@
 				9531096A2C88760200CCD8DD /* APIGate.framework */,
 				9531096B2C88760200CCD8DD /* BusinessLayer.framework */,
 				9531096C2C88760200CCD8DD /* DataRepository.framework */,
-				953109412C87926300CCD8DD /* APIGateProtocol.framework */,
 				9531093E2C8791C600CCD8DD /* APIGate.framework */,
-				953109372C878A4300CCD8DD /* APIGateProtocol.framework */,
-				953109342C8789BA00CCD8DD /* DataRepositoryProtocol.framework */,
-				953109312C87895500CCD8DD /* BusinessLayerProtocol.framework */,
 				953108B42C86993300CCD8DD /* APIGate.framework */,
 				953108582C8680D500CCD8DD /* BusinessLayer.framework */,
 				9531080E2C867F1800CCD8DD /* libBusinessLayer.a */,
@@ -368,8 +359,6 @@
 			isa = PBXGroup;
 			children = (
 				953109BE2C8A366D00CCD8DD /* ImageLoadingService */,
-				953109A32C8A0A1400CCD8DD /* CommonViews */,
-				9531098D2C88D6D600CCD8DD /* ColorExtension.swift */,
 			);
 			path = Utilites;
 			sourceTree = "<group>";
@@ -400,13 +389,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		953109A32C8A0A1400CCD8DD /* CommonViews */ = {
+		953109A32C8A0A1400CCD8DD /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				953109A42C8A0A1F00CCD8DD /* CharacterAsyncImage.swift */,
-				953109A62C8A0A3D00CCD8DD /* StatusPill.swift */,
+				9531095F2C87D9E600CCD8DD /* Utilites */,
+				953109EC2C8B572300CCD8DD /* Extension */,
 			);
-			path = CommonViews;
+			path = Common;
 			sourceTree = "<group>";
 		};
 		953109BE2C8A366D00CCD8DD /* ImageLoadingService */ = {
@@ -438,6 +427,49 @@
 				953109E32C8B4B1300CCD8DD /* MockNavigationController.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		953109EA2C8B56A800CCD8DD /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				953109EE2C8B578E00CCD8DD /* Common */,
+				953109EB2C8B56B100CCD8DD /* Scenes */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		953109EB2C8B56B100CCD8DD /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				953108A72C86951000CCD8DD /* CharactersList */,
+				953109552C87D30800CCD8DD /* CharacterDetails */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		953109EC2C8B572300CCD8DD /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				9531098D2C88D6D600CCD8DD /* ColorExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		953109ED2C8B574D00CCD8DD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				953109A42C8A0A1F00CCD8DD /* CharacterAsyncImage.swift */,
+				953109A62C8A0A3D00CCD8DD /* StatusPill.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		953109EE2C8B578E00CCD8DD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				953109ED2C8B574D00CCD8DD /* Views */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
