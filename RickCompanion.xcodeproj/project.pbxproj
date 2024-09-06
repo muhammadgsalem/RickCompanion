@@ -45,6 +45,8 @@
 		953109CB2C8B216900CCD8DD /* DiskCacheServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109CA2C8B216900CCD8DD /* DiskCacheServiceProtocol.swift */; };
 		953109CD2C8B21B700CCD8DD /* MemoryCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109CC2C8B21B700CCD8DD /* MemoryCache.swift */; };
 		953109CF2C8B21D800CCD8DD /* DiskCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109CE2C8B21D800CCD8DD /* DiskCache.swift */; };
+		953109D12C8B379800CCD8DD /* CharactersTableViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109D02C8B379800CCD8DD /* CharactersTableViewManager.swift */; };
+		953109D32C8B37CC00CCD8DD /* FilterViewWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953109D22C8B37CC00CCD8DD /* FilterViewWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +130,8 @@
 		953109CA2C8B216900CCD8DD /* DiskCacheServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskCacheServiceProtocol.swift; sourceTree = "<group>"; };
 		953109CC2C8B21B700CCD8DD /* MemoryCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryCache.swift; sourceTree = "<group>"; };
 		953109CE2C8B21D800CCD8DD /* DiskCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskCache.swift; sourceTree = "<group>"; };
+		953109D02C8B379800CCD8DD /* CharactersTableViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTableViewManager.swift; sourceTree = "<group>"; };
+		953109D22C8B37CC00CCD8DD /* FilterViewWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,6 +275,8 @@
 				953108B92C86A96900CCD8DD /* CharactersViewController.swift */,
 				953109892C88C12600CCD8DD /* FilterView.swift */,
 				953109AF2C8A23CF00CCD8DD /* FilterButton.swift */,
+				953109D02C8B379800CCD8DD /* CharactersTableViewManager.swift */,
+				953109D22C8B37CC00CCD8DD /* FilterViewWrapper.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -556,6 +562,7 @@
 				953109972C89BE4700CCD8DD /* CharacterDetailsView.swift in Sources */,
 				953108B82C869A3F00CCD8DD /* SceneDelegate.swift in Sources */,
 				953108C62C87345A00CCD8DD /* CharactersTableViewCell.swift in Sources */,
+				953109D12C8B379800CCD8DD /* CharactersTableViewManager.swift in Sources */,
 				953109B02C8A23CF00CCD8DD /* FilterButton.swift in Sources */,
 				953109582C87D37500CCD8DD /* CharacterDetailsViewController.swift in Sources */,
 				953108B32C86963C00CCD8DD /* AppCoordinator.swift in Sources */,
@@ -573,6 +580,7 @@
 				953109A72C8A0A3D00CCD8DD /* StatusPill.swift in Sources */,
 				953109C92C8B215100CCD8DD /* MemoryCacheServiceProtocol.swift in Sources */,
 				953108AC2C86956900CCD8DD /* CharactersViewModel.swift in Sources */,
+				953109D32C8B37CC00CCD8DD /* FilterViewWrapper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
