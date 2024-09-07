@@ -9,6 +9,13 @@ import BusinessLayer
 import DataRepository
 import Foundation
 
+/// A view model that manages the data and business logic for the characters list.
+///
+/// This view model is responsible for:
+/// - Fetching characters from the use case
+/// - Managing pagination
+/// - Handling character filtering
+/// - Notifying the view controller of state changes
 @MainActor
 class CharactersViewModel: CharactersViewModelProtocol {
     private let fetchCharactersUseCase: FetchCharactersUseCaseProtocol
@@ -26,14 +33,22 @@ class CharactersViewModel: CharactersViewModelProtocol {
         }
     }
     
+    /// Indicates whether more pages can be loaded.
     var canLoadMorePages: Bool {
         !isFetching && hasMorePages
     }
     
+    /// Initializes a new instance of `CharactersViewModel`.
+    ///
+    /// - Parameter fetchCharactersUseCase: The use case responsible for fetching characters from the repository.
     init(fetchCharactersUseCase: FetchCharactersUseCaseProtocol) {
         self.fetchCharactersUseCase = fetchCharactersUseCase
     }
 
+    /// Loads the next page of characters.
+    ///
+    /// This method handles pagination and updates the view model's state accordingly.
+    /// It will only fetch new characters if there are more pages available and no fetch is currently in progress.
     func loadCharacters() async {
         guard canLoadMorePages else { return }
         isFetching = true
@@ -54,6 +69,9 @@ class CharactersViewModel: CharactersViewModelProtocol {
         self.isFetching = false
     }
 
+    /// Resets the pagination state.
+    ///
+    /// This method clears the current characters, resets the page counter, and sets the state to idle.
     func resetPagination() {
         currentPage = 1
         hasMorePages = true
@@ -61,6 +79,9 @@ class CharactersViewModel: CharactersViewModelProtocol {
         state = .idle
     }
 
+    /// Applies a new filter to the character list.
+    ///
+    /// - Parameter filter: The new `CharacterStatus` filter to apply.
     func applyFilter(_ filter: CharacterStatus?) {
         if filter != currentFilter {
             currentFilter = filter
@@ -72,6 +93,9 @@ class CharactersViewModel: CharactersViewModelProtocol {
         }
     }
 
+    /// Loads more characters if needed based on the current scroll position.
+    ///
+    /// - Parameter index: The index of the currently visible character.
     func loadMoreCharactersIfNeeded(for index: Int) {
         guard index == characters.count - 1 else { return }
         Task {

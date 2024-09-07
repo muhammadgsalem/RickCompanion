@@ -432,8 +432,8 @@
 		953109EA2C8B56A800CCD8DD /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				953109EE2C8B578E00CCD8DD /* Common */,
 				953109EB2C8B56B100CCD8DD /* Scenes */,
+				953109EE2C8B578E00CCD8DD /* Common */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";

@@ -6,6 +6,7 @@
 //
 import APIGate
 
+/// Defines the endpoint for fetching characters from the Rick and Morty API.
 struct CharactersEndpoint: Endpoint {
     let page: Int
     let status: String
@@ -21,6 +22,11 @@ struct CharactersEndpoint: Endpoint {
     }
     var headers: [String: String]? { nil }
 
+    /// Initializes a new instance of `CharactersEndpoint`.
+    ///
+    /// - Parameters:
+    ///   - page: The page number to fetch.
+    ///   - status: The status filter to apply.
     init(page: Int, status: String) {
         self.page = page
         self.status = status.lowercased()

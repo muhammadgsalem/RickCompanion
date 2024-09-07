@@ -7,15 +7,26 @@
 
 import Foundation
 
+/// A networking service that uses `URLSession` to perform network requests.
 final class URLSessionNetworking: NetworkProtocol {
     private let session: URLSessionProtocol
     private let decoder: JSONDecoder
     
+    /// Initializes a new instance of `URLSessionNetworking`.
+    ///
+    /// - Parameters:
+    ///   - session: The `URLSessionProtocol` to use for network requests. Defaults to `URLSession.shared`.
+    ///   - decoder: The `JSONDecoder` to use for decoding responses. Defaults to a new instance.
     init(session: URLSessionProtocol = URLSession.shared, decoder: JSONDecoder = JSONDecoder()) {
         self.session = session
         self.decoder = decoder
     }
     
+    /// Performs a network request and decodes the response.
+    ///
+    /// - Parameter endpoint: The `Endpoint` describing the request to be made.
+    /// - Returns: A decoded object of type `T`.
+    /// - Throws: A `NetworkError` if the request fails or the response cannot be decoded.
     func request<T: Decodable>(_ endpoint: Endpoint) async throws -> T {
         guard let url = URL(string: endpoint.path) else {
             throw NetworkError.invalidURL
@@ -42,6 +53,11 @@ final class URLSessionNetworking: NetworkProtocol {
         }
     }
     
+    /// Configures a URLRequest with the parameters from an Endpoint.
+    ///
+    /// - Parameters:
+    ///   - request: The URLRequest to configure.
+    ///   - endpoint: The Endpoint containing the configuration information.
     private func configureRequest(_ request: inout URLRequest, with endpoint: Endpoint) {
         request.httpMethod = endpoint.method.rawValue
         

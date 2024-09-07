@@ -7,7 +7,7 @@
 
 import SwiftUI
 import UIKit
-
+/// This class is responsible for handling the FilterView creation and callbacks for the VC.
 class FilterViewWrapper: UIView {
     private var hostingController: UIHostingController<FilterView>?
     

@@ -8,6 +8,7 @@
 import UIKit
 import DataRepository
 
+/// This class is responsible for handling the TableView UITableViewDataSource, UITableViewDelegate and UITableViewDataSourcePrefetching to keep the VC clean.
 class CharactersTableViewManager: NSObject, UITableViewDataSource, UITableViewDelegate, UITableViewDataSourcePrefetching {
     
     private let viewModel: CharactersViewModelProtocol

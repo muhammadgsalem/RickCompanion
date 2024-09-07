@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Represents errors that can occur during network operations.
 public enum NetworkError: Error, Equatable {
     case invalidURL
     case invalidResponse
@@ -14,7 +15,7 @@ public enum NetworkError: Error, Equatable {
     case noData
     case decodingError
     case unknownError(Error)
-
+    
     public static func == (lhs: NetworkError, rhs: NetworkError) -> Bool {
         switch (lhs, rhs) {
         case (.invalidURL, .invalidURL),

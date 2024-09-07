@@ -8,6 +8,14 @@ import UIKit
 import DataRepository
 import SwiftUI
 
+/// A view controller that displays a list of Rick and Morty characters.
+///
+/// This view controller is responsible for:
+/// - Displaying a paginated list of characters
+/// - Handling user interactions for character selection
+/// - Managing the filtering of characters by status
+///
+/// It uses a `CharactersViewModel` to manage its data and business logic.
 class CharactersViewController: UIViewController {
     private let coordinator: CharactersCoordinator
     private let viewModel: CharactersViewModelProtocol
@@ -24,6 +32,13 @@ class CharactersViewController: UIViewController {
         return indicator
     }()
 
+    /// Initializes a new instance of `CharactersViewController`.
+    ///
+    /// - Parameters:
+    ///   - coordinator: The coordinator responsible for handling navigation from this view controller.
+    ///   - viewModel: The view model that provides data and business logic for this view controller.
+    ///   - imageLoadingService: The service responsible for loading and caching character images.
+    ///   - filterViewWrapper: A wrapper for the filter view used to filter characters by status.
     init(coordinator: CharactersCoordinator,
          viewModel: CharactersViewModelProtocol,
          imageLoadingService: ImageCacheService,
@@ -60,6 +75,7 @@ class CharactersViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    /// Sets up the main UI components of the view controller.
     private func setupUI() {
         view.backgroundColor = .white
         view.addSubview(tableView)
@@ -72,6 +88,7 @@ class CharactersViewController: UIViewController {
         ])
     }
 
+    /// Configures the table view with necessary settings and registers cell types.
     private func configureTableView() {
         tableView.delegate = tableViewManager
         tableView.dataSource = tableViewManager
@@ -83,11 +100,13 @@ class CharactersViewController: UIViewController {
         tableView.tableHeaderView = createHeaderView()
     }
 
+    /// Configures the refresh control for pull-to-refresh functionality.
     private func configureRefreshControl() {
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         tableView.refreshControl = refreshControl
     }
     
+    /// Configures the filter view for character status filtering.
     private func configureFilterView() {
         filterView.onFilterSelected = { [weak self] newFilter in
             self?.viewModel.applyFilter(newFilter)
@@ -97,6 +116,7 @@ class CharactersViewController: UIViewController {
         }
     }
 
+    /// Sets up the activity indicator for loading states.
     private func setupActivityIndicator() {
         view.addSubview(activityIndicator)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -106,6 +126,9 @@ class CharactersViewController: UIViewController {
         ])
     }
 
+    /// Creates and returns the header view for the table view.
+    ///
+    /// - Returns: A `UIView` containing the title and filter options.
     private func createHeaderView() -> UIView {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 150))
         headerView.backgroundColor = .white
@@ -137,6 +160,7 @@ class CharactersViewController: UIViewController {
         return headerView
     }
 
+    /// Refreshes the character data.
     @objc private func refreshData() {
         viewModel.resetPagination()
         Task {
@@ -144,10 +168,14 @@ class CharactersViewController: UIViewController {
         }
     }
 
+    /// Loads characters from the view model.
     private func loadCharacters() async {
         await viewModel.loadCharacters()
     }
 
+    /// Displays an error alert to the user.
+    ///
+    /// - Parameter error: The error to display.
     private func showError(_ error: Error) {
         let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
@@ -159,6 +187,7 @@ class CharactersViewController: UIViewController {
         present(alert, animated: true)
     }
 
+    /// Shows the loading indicator and disables user interaction.
     private func showLoadingIndicator() {
         DispatchQueue.main.async { [weak self] in
             self?.activityIndicator.startAnimating()
@@ -166,6 +195,7 @@ class CharactersViewController: UIViewController {
         }
     }
 
+    /// Hides the loading indicator and enables user interaction.
     private func hideLoadingIndicator() {
         DispatchQueue.main.async { [weak self] in
             self?.activityIndicator.stopAnimating()
